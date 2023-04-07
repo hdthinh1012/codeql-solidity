@@ -9,6 +9,6 @@ exec "${CODEQL_DIST}/codeql" database index-files \
     --include-extension=.gemspec \
     --include="**/Gemfile" \
     --size-limit=5m \
-    --language=ruby \
+    --language=solidity \
     --working-dir=.\
-    "$CODEQL_EXTRACTOR_RUBY_WIP_DATABASE"
+    "$CODEQL_EXTRACTOR_SOLIDITY_WIP_DATABASE"

@@ -7,138 +7,119 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'ruby-autobuilder'",
+            "name": "Debug executable 'solidity-autobuilder'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=ruby-autobuilder",
-                    "--package=ruby-autobuilder"
+                    "--bin=solidity-autobuilder",
+                    "--package=solidity-autobuilder"
                 ],
                 "filter": {
-                    "name": "ruby-autobuilder",
+                    "name": "solidity-autobuilder",
                     "kind": "bin"
                 }
             },
+            "args": [],
             "env": {
                 "CC": "gcc",
                 "CODEQL_DIST": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql",
-                "CODEQL_EXTRACTOR_RUBY_DIAGNOSTIC_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/diagnostic/extractors/ruby",
-                "CODEQL_EXTRACTOR_RUBY_LOG_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/log",
-                "CODEQL_EXTRACTOR_RUBY_ROOT": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Extractor/Ruby_Extractor_Source_Code/extractor-pack",
-                "CODEQL_EXTRACTOR_RUBY_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working",
-                "CODEQL_EXTRACTOR_RUBY_SOURCE_ARCHIVE_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/src",
-                "CODEQL_EXTRACTOR_RUBY_TRAP_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/trap/ruby",
-                "CODEQL_EXTRACTOR_RUBY_WIP_DATABASE": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby",
+                "CODEQL_EXTRACTOR_SOLIDITY_DIAGNOSTIC_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/diagnostic/extractors/solidity",
+                "CODEQL_EXTRACTOR_SOLIDITY_LOG_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/log",
+                "CODEQL_EXTRACTOR_SOLIDITY_ROOT": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Extractor/Ruby_Extractor_Source_Code/extractor-pack",
+                "CODEQL_EXTRACTOR_SOLIDITY_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/working",
+                "CODEQL_EXTRACTOR_SOLIDITY_SOURCE_ARCHIVE_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/src",
+                "CODEQL_EXTRACTOR_SOLIDITY_TRAP_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/trap/ruby",
+                "CODEQL_EXTRACTOR_SOLIDITY_WIP_DATABASE": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity",
                 "CODEQL_HOME": "/mnt/c/users/hdthinh1012/codeql-home",
                 "CODEQL_JAVA_HOME": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql/tools/linux64/java",
                 "CODEQL_PLATFORM": "linux64",
                 "CODEQL_PLATFORM_DLL_EXTENSION": ".so",
-                "CODEQL_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working"
+                "CODEQL_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/working"
             },
-            "args": [],
-            "cwd": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/ruby/source/eval_ruby"
+            "cwd": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/solidity/source/dummy-solidity"
         },
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'ruby-autobuilder'",
+            "name": "Debug executable 'solidity-extractor'",
             "cargo": {
                 "args": [
-                    "test",
-                    "--no-run",
-                    "--bin=ruby-autobuilder",
-                    "--package=ruby-autobuilder"
+                    "build",
+                    "--bin=solidity-extractor",
+                    "--package=solidity-extractor"
                 ],
                 "filter": {
-                    "name": "ruby-autobuilder",
+                    "name": "solidity-extractor",
                     "kind": "bin"
                 }
             },
-            "args": [],
+            "args": [
+                "--file-list",
+                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/working/files-to-index13800655692486321338.list",
+                "--source-archive-dir",
+                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/src",
+                "--output-dir",
+                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/trap/solidity"
+            ],
+            "env": {
+                "CC": "gcc",
+                "CODEQL_DIST": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql",
+                "CODEQL_EXTRACTOR_SOLIDITY_DIAGNOSTIC_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/diagnostic/extractors/solidity",
+                "CODEQL_EXTRACTOR_SOLIDITY_LOG_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/log",
+                "CODEQL_EXTRACTOR_SOLIDITY_ROOT": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Extractor/Ruby_Extractor_Source_Code/extractor-pack",
+                "CODEQL_EXTRACTOR_SOLIDITY_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/working",
+                "CODEQL_EXTRACTOR_SOLIDITY_SOURCE_ARCHIVE_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/src",
+                "CODEQL_EXTRACTOR_SOLIDITY_TRAP_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/trap/ruby",
+                "CODEQL_EXTRACTOR_SOLIDITY_WIP_DATABASE": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity",
+                "CODEQL_HOME": "/mnt/c/users/hdthinh1012/codeql-home",
+                "CODEQL_JAVA_HOME": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql/tools/linux64/java",
+                "CODEQL_PLATFORM": "linux64",
+                "CODEQL_PLATFORM_DLL_EXTENSION": ".so",
+                "CODEQL_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/working"
+            },
+            "cwd": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/solidity/source/dummy-solidity"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'solidity-generator'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=solidity-generator",
+                    "--package=solidity-generator"
+                ],
+                "filter": {
+                    "name": "solidity-generator",
+                    "kind": "bin"
+                }
+            },
+            "args": [
+                "--dbscheme",
+                "ql/lib/solidity.dbscheme",
+                "--library",
+                "ql/lib/codeql/solidity/ast/internal/TreeSitter.qll"
+            ],
             "cwd": "${workspaceFolder}"
         },
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug run executable 'ruby-extractor'",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=ruby-extractor",
-                    "--package=ruby-extractor"
-                ],
-                "filter": {
-                    "name": "ruby-extractor",
-                    "kind": "bin"
-                }
-            },
-            "env": {
-                "CC": "gcc",
-                "CODEQL_DIST": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql",
-                "CODEQL_EXTRACTOR_RUBY_DIAGNOSTIC_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/diagnostic/extractors/ruby",
-                "CODEQL_EXTRACTOR_RUBY_LOG_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/log",
-                "CODEQL_EXTRACTOR_RUBY_ROOT": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Extractor/Ruby_Extractor_Source_Code/extractor-pack",
-                "CODEQL_EXTRACTOR_RUBY_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working",
-                "CODEQL_EXTRACTOR_RUBY_SOURCE_ARCHIVE_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/src",
-                "CODEQL_EXTRACTOR_RUBY_TRAP_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/trap/ruby",
-                "CODEQL_EXTRACTOR_RUBY_WIP_DATABASE": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby",
-                "CODEQL_HOME": "/mnt/c/users/hdthinh1012/codeql-home",
-                "CODEQL_JAVA_HOME": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql/tools/linux64/java",
-                "CODEQL_PLATFORM": "linux64",
-                "CODEQL_PLATFORM_DLL_EXTENSION": ".so",
-                "CODEQL_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working"
-            },
-            "args": [
-                "--file-list",
-                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working/files-to-index5073466092910698018.list",
-                "--source-archive-dir",
-                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/src",
-                "--output-dir",
-                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/trap/ruby"
-            ],
-            "cwd": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/source/eval_ruby/"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'ruby-extractor'",
+            "name": "Debug unit tests in executable 'solidity-generator'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=ruby-extractor",
-                    "--package=ruby-extractor"
+                    "--bin=solidity-generator",
+                    "--package=solidity-generator"
                 ],
                 "filter": {
-                    "name": "ruby-extractor",
+                    "name": "solidity-generator",
                     "kind": "bin"
                 }
             },
-            "env": {
-                "CC": "gcc",
-                "CODEQL_DIST": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql",
-                "CODEQL_EXTRACTOR_RUBY_DIAGNOSTIC_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/diagnostic/extractors/ruby",
-                "CODEQL_EXTRACTOR_RUBY_LOG_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/log",
-                "CODEQL_EXTRACTOR_RUBY_ROOT": "/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Extractor/Ruby_Extractor_Source_Code/extractor-pack",
-                "CODEQL_EXTRACTOR_RUBY_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working",
-                "CODEQL_EXTRACTOR_RUBY_SOURCE_ARCHIVE_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/src",
-                "CODEQL_EXTRACTOR_RUBY_TRAP_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/trap/ruby",
-                "CODEQL_EXTRACTOR_RUBY_WIP_DATABASE": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby",
-                "CODEQL_HOME": "/mnt/c/users/hdthinh1012/codeql-home",
-                "CODEQL_JAVA_HOME": "/mnt/c/users/hdthinh1012/codeql-home/codeql/codeql/tools/linux64/java",
-                "CODEQL_PLATFORM": "linux64",
-                "CODEQL_PLATFORM_DLL_EXTENSION": ".so",
-                "CODEQL_SCRATCH_DIR": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working"
-            },
-            "args": [
-                "--file-list",
-                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/working/files-to-index5073466092910698018.list",
-                "--source-archive-dir",
-                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/src",
-                "--output-dir",
-                "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/database/eval_ruby/trap/ruby"
-            ],
-            "cwd": "/mnt/c/users/hdthinh1012/LVTN_CodeQL_Database/ruby/source/eval_ruby/"
+            "args": [],
+            "cwd": "${workspaceFolder}"
         },
         {
             "type": "lldb",
@@ -154,48 +135,6 @@
                 "filter": {
                     "name": "node-types",
                     "kind": "lib"
-                }
-            },
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug executable 'ruby-generator'",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=ruby-generator",
-                    "--package=ruby-generator"
-                ],
-                "filter": {
-                    "name": "ruby-generator",
-                    "kind": "bin"
-                }
-            },
-            "args": [
-                "--dbscheme",
-                "ql/lib/ruby.dbscheme",
-                "--library",
-                "ql/lib/codeql/ruby/ast/internal/TreeSitter.qll"
-            ],
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'ruby-generator'",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--bin=ruby-generator",
-                    "--package=ruby-generator"
-                ],
-                "filter": {
-                    "name": "ruby-generator",
-                    "kind": "bin"
                 }
             },
             "args": [],

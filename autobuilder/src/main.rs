@@ -4,8 +4,8 @@ use std::process::Command;
 
 fn main() -> std::io::Result<()> {
     let dist = env::var("CODEQL_DIST").expect("CODEQL_DIST not set");
-    let db = env::var("CODEQL_EXTRACTOR_RUBY_WIP_DATABASE")
-        .expect("CODEQL_EXTRACTOR_RUBY_WIP_DATABASE not set");
+    let db = env::var("CODEQL_EXTRACTOR_SOLIDITY_WIP_DATABASE")
+        .expect("CODEQL_EXTRACTOR_SOLIDITY_WIP_DATABASE not set");
     let codeql = if env::consts::OS == "windows" {
         "codeql.exe"
     } else {
@@ -15,13 +15,10 @@ fn main() -> std::io::Result<()> {
     let mut cmd = Command::new(codeql);
     cmd.arg("database")
         .arg("index-files")
-        .arg("--include-extension=.rb")
-        .arg("--include-extension=.erb")
-        .arg("--include-extension=.gemspec")
-        .arg("--include=**/Gemfile")
+        .arg("--include-extension=.sol")
         .arg("--exclude=**/.git")
         .arg("--size-limit=5m")
-        .arg("--language=ruby")
+        .arg("--language=solidity")
         .arg("--working-dir=.")
         .arg(db);
 

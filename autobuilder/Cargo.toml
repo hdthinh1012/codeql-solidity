@@ -1,5 +1,5 @@
 [package]
-name = "ruby-autobuilder"
+name = "solidity-autobuilder"
 version = "0.1.0"
 authors = ["GitHub"]
 edition = "2018"

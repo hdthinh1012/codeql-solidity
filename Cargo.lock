@@ -421,41 +421,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "456c603be3e8d448b072f410900c09faf164fbce2d480456f50eea6e25f9c848"
 
 [[package]]
-name = "ruby-autobuilder"
-version = "0.1.0"
-
-[[package]]
-name = "ruby-extractor"
-version = "0.1.0"
-dependencies = [
- "clap",
- "encoding",
- "flate2",
- "lazy_static",
- "node-types",
- "num_cpus",
- "rayon",
- "regex",
- "tracing",
- "tracing-subscriber",
- "tree-sitter 0.20.9",
- "tree-sitter-embedded-template 0.20.0",
- "tree-sitter-ruby",
-]
-
-[[package]]
-name = "ruby-generator"
-version = "0.1.0"
-dependencies = [
- "clap",
- "node-types",
- "tracing",
- "tracing-subscriber",
- "tree-sitter-embedded-template 0.19.0",
- "tree-sitter-ruby",
-]
-
-[[package]]
 name = "ryu"
 version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -512,6 +477,39 @@ name = "smallvec"
 version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
+
+[[package]]
+name = "solidity-autobuilder"
+version = "0.1.0"
+
+[[package]]
+name = "solidity-extractor"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "encoding",
+ "flate2",
+ "lazy_static",
+ "node-types",
+ "num_cpus",
+ "rayon",
+ "regex",
+ "tracing",
+ "tracing-subscriber",
+ "tree-sitter",
+ "tree-sitter-solidity",
+]
+
+[[package]]
+name = "solidity-generator"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "node-types",
+ "tracing",
+ "tracing-subscriber",
+ "tree-sitter-solidity",
+]
 
 [[package]]
 name = "strsim"
@@ -628,40 +626,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "tree-sitter"
-version = "0.20.9"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d4423c784fe11398ca91e505cdc71356b07b1a924fc8735cfab5333afe3e18bc"
+name = "tree-sitter-solidity"
+version = "0.0.3"
+source = "git+https://github.com/JoranHonig/tree-sitter-solidity.git?rev=168020304759ad5d8b4a88a541a699134e3730c5#168020304759ad5d8b4a88a541a699134e3730c5"
 dependencies = [
  "cc",
- "regex",
-]
-
-[[package]]
-name = "tree-sitter-embedded-template"
-version = "0.19.0"
-source = "git+https://github.com/tree-sitter/tree-sitter-embedded-template.git?rev=1a538da253d73f896b9f6c0c7d79cda58791ac5c#1a538da253d73f896b9f6c0c7d79cda58791ac5c"
-dependencies = [
- "cc",
- "tree-sitter 0.19.5",
-]
-
-[[package]]
-name = "tree-sitter-embedded-template"
-version = "0.20.0"
-source = "git+https://github.com/tree-sitter/tree-sitter-embedded-template.git?rev=a13085849cf69e2401ec44e38cffc3d73f22f3df#a13085849cf69e2401ec44e38cffc3d73f22f3df"
-dependencies = [
- "cc",
- "tree-sitter 0.20.9",
-]
-
-[[package]]
-name = "tree-sitter-ruby"
-version = "0.19.0"
-source = "git+https://github.com/tree-sitter/tree-sitter-ruby.git?rev=ad1043283b1f9daf4aad381b6a81f18a5a27fe7e#ad1043283b1f9daf4aad381b6a81f18a5a27fe7e"
-dependencies = [
- "cc",
- "tree-sitter 0.20.9",
+ "tree-sitter",
 ]
 
 [[package]]

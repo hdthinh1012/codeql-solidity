@@ -550,10 +550,10 @@ fn main() -> std::io::Result<()> {
         .with_env_filter(tracing_subscriber::EnvFilter::from_default_env())
         .init();
 
-    let matches = clap::App::new("Ruby dbscheme generator")
+    let matches = clap::App::new("Solidity dbscheme generator")
         .version("1.0")
         .author("GitHub")
-        .about("CodeQL Ruby dbscheme generator")
+        .about("CodeQL Solidity dbscheme generator")
         .arg(arg!(--dbscheme <FILE>                  "Path of the generated dbscheme file"))
         .arg(arg!(--library <FILE>                   "Path of the generated QLL file"))
         .get_matches();
@@ -563,16 +563,10 @@ fn main() -> std::io::Result<()> {
     let ql_library_path = matches.value_of("library").expect("missing --library");
     let ql_library_path = PathBuf::from(ql_library_path);
 
-    let languages = vec![
-        Language {
-            name: "Ruby".to_owned(),
-            node_types: tree_sitter_ruby::NODE_TYPES,
-        },
-        Language {
-            name: "Erb".to_owned(),
-            node_types: tree_sitter_embedded_template::NODE_TYPES,
-        },
-    ];
+    let languages = vec![Language {
+        name: "Solidity".to_owned(),
+        node_types: tree_sitter_solidity::NODE_TYPES,
+    }];
     let mut dbscheme_writer = LineWriter::new(File::create(dbscheme_path)?);
     write!(
         dbscheme_writer,
