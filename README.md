@@ -12,3 +12,6 @@ It contains two major components:
      into a database that can be queried using CodeQL. See [Developer
      information](doc/HOWTO.md) for information on building the extractor (you
      do not need to do this if you are only developing queries).
+
+Projects using code from:
+[JoranHonig Treesitter Solidity](https://github.com/JoranHonig/tree-sitter-solidity)
