@@ -97,6 +97,9 @@ codeql test run <test-path> --search-path <extractor-pack-path>
 ```
 
 ## Current Error
+Error occurs when running query while selecting the newly created solidity database.
+
+### Reproduce step
 Using VSCode extension, select the newly create solidity database and run a dummy query on it
 
 Clone [VSCode CodeQL Starter](https://github.com/github/vscode-codeql-starter) project
