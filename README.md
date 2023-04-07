@@ -13,5 +13,5 @@ It contains two major components:
      information](doc/HOWTO.md) for information on building the extractor (you
      do not need to do this if you are only developing queries).
 
-Projects using code from:
-[JoranHonig Treesitter Solidity](https://github.com/JoranHonig/tree-sitter-solidity)
+# Projects dependencies
+[JoranHonig's tree-sitter-solidity](https://github.com/JoranHonig/tree-sitter-solidity)
