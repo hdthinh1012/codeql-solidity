@@ -1,0 +1,14 @@
+ #      Precompiled CodeQL query
+---
+format:
+- 202210190
+creator: "2.12.2"
+name: "example.ql"
+dbscheme: "aa8857de371ebc4f03226075d6c26376604300cb"
+stages:
+- cached: "127705aa9a84f0108738b383044348ccfbbe5148"
+  debugInfo: "c8d1cdf12eb87f8bafb780d7210f7f890be7af84"
+results:
+  '#Quick_evaluation_of_predicate_getANumber':
+    resultArranger: "1\"result\"i"
+inputsDigest: "f0a76de95efc860a48233876077310752bd3ad47"

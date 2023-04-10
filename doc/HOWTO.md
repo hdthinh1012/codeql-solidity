@@ -2,6 +2,11 @@
 
 This document contains information about common development tasks.
 
+## Note
+Due to some Linking issues of native C code when compiling extractor in Windows, the projects is only confirmed to compile successfully in WSL2.  
+
+Who installed codeql CLI in Windows environment must open 2 VSCode instances, one in WSL2 to be able to run `codeql database create` command using symbolic-linked solidity extractor, one in Windows to run Solidity QL queries (higher performances). 
+
 ## Building the tools from source
 
 [Install Rust](https://www.rust-lang.org/tools/install), then run:
@@ -21,7 +26,7 @@ cargo run --release -p solidity-generator -- --dbscheme ql/lib/solidity.dbscheme
 codeql query format -i ql/lib/codeql/solidity/ast/internal/TreeSitter.qll
 ```
 
-## Building a CodeQL database for a Ruby program
+## Building a CodeQL database for a Solidity program
 
 First, get an extractor pack:
 
@@ -87,154 +92,16 @@ drwxrwxrwx 1 hdthinh1012 hdthinh1012  512 Apr  7 22:51 log
 -rwxrwxrwx 1 hdthinh1012 hdthinh1012 3243 Apr  7 22:51 src.zip
 """
 ```
+### Fix lacking solidity.dbscheme.stats
 
-## Running qltests
-
-Run
-
-```bash
-codeql test run <test-path> --search-path <extractor-pack-path>
-```
-
-## Current Error
-Using VSCode extension, select the newly create solidity database and run a dummy query on it
-
-Clone [VSCode CodeQL Starter](https://github.com/github/vscode-codeql-starter) project
-Create symbolic link to Solidity Extractor/Library directory
+Run command `codeql dataset measure` after generating raw QL dataset directory in <database-directory>/db-solidity
 
 ```
-cd /mnt/c/Users/hdthinh1012/codeql-home/vscode-codeql-starter/ql
-ln -s /mnt/c/Users/hdthinh1012/LVTN_CodeQL_Extractor/Solidity_CodeQL_Library_Projects solidity
+codeql dataset measure --output=/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/db-solidity/solidity.dbscheme.stats /mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/db-solidity/
 ```
 
-Create an directory named `codeql-custom-queries-solidity` add a simple ql `example.ql` that not import solidity related QL library yet:
-```
-int getANumber() {
-    result = 0
-    or
-    result <= 100 and result = getANumber() + 1
-}
+After that any query that without importing module `solidity`, run normally
 
-select getANumber()
-```
-Right click `example.ql` in editor, click 'CodeQL: Run Query on Selected Database'. Getting error with logs in CodeQL Query Server:
-```
-Error running query: Internal error. (codeQL.runQueryContextEditor)
-Error: Error running query: Internal error.
-    at handleResponse (c:\Users\hdthinh1012\.vscode\extensions\github.vscode-codeql-1.8.1\out\extension.js:4399:40)
-    at processMessageQueue (c:\Users\hdthinh1012\.vscode\extensions\github.vscode-codeql-1.8.1\out\extension.js:4222:13)
-    at Immediate.<anonymous> (c:\Users\hdthinh1012\.vscode\extensions\github.vscode-codeql-1.8.1\out\extension.js:4208:11)
-    at processImmediate (node:internal/timers:466:21)
------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Log being saved to c:\Users\hdthinh1012\AppData\Roaming\Code\User\globalStorage\github.vscode-codeql\queries\example.ql-rBaPhXqV0jrW404f_rYYm\query.log |
------------------------------------------------------------------------------------------------------------------------------------------------------------
-[2023-04-07 23:38:12] [SPAMMY] execute query-server2> runQuery called with c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\example.ql
-[2023-04-07 23:38:12] Calling plumbing command: codeql resolve library-path --additional-packs=c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-cpp;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-csharp;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-go;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-java;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-javascript;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-python;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-ruby;c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\ql --query=c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\example.ql --format=json
-[2023-04-07 23:38:12] [DETAILS] resolve library-path> Found no pack; trying after symlink resolution with C:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\example.ql.
-[2023-04-07 23:38:12] [DETAILS] resolve library-path> Resolving query at normalized path C:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\example.ql.
-[2023-04-07 23:38:12] [DETAILS] resolve library-path> Found enclosing pack 'codeql-custom-queries-solidity' at C:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity.
-[2023-04-07 23:38:12] [DETAILS] resolve library-path> Adding compilation cache at C:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\.cache.
-[2023-04-07 23:38:12] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
-[2023-04-07 23:38:12] [DETAILS] resolve library-path> QL pack dependencies for C:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity found in cache.
-[2023-04-07 23:38:12] Plumbing command codeql resolve library-path completed:
-                      {
-                        "libraryPath" : [
-                          "C:\\Users\\hdthinh1012\\codeql-home\\vscode-codeql-starter\\codeql-custom-queries-solidity"
-                        ],
-                        "compilationCache" : [
-                          "C:\\Users\\hdthinh1012\\codeql-home\\vscode-codeql-starter\\codeql-custom-queries-solidity\\.cache"
-                        ],
-                        "relativeName" : "codeql-custom-queries-solidity\\example.ql",
-                        "possibleAdvice" : "There should probably be a qlpack.yml file declaring dependencies in C:\\Users\\hdthinh1012\\codeql-home\\vscode-codeql-starter\\codeql-custom-queries-solidity or an enclosing directory.",
-                        "qlPackName" : "codeql-custom-queries-solidity"
-                      }
-[2023-04-07 23:38:12] [PROGRESS] execute query-server2> Compiling query plan for c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\example.ql.
-[2023-04-07 23:38:12] [DETAILS] execute query-server2> Resolving imports for c:\Users\hdthinh1012\codeql-home\vscode-codeql-starter\codeql-custom-queries-solidity\example.ql.
-[2023-04-07 23:38:12] [PROGRESS] execute query-server2> Error running query
-[2023-04-07 23:38:12] [ERROR] Error running query
-                              com.semmle.util.exception.ResourceError: Failed to read path C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-solidity\solidity.dbscheme.stats
-                              (eventual cause: NoSuchFileException "C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-so...")
-                              	at com.semmle.util.io.WholeIO.strictread(WholeIO.java:341)
-                              	at com.semmle.frontend.imports.QLFileSetResolver.addDbscheme(QLFileSetResolver.java:164)
-                              	at com.semmle.frontend.imports.QLFileSetResolver.resolveFileSet(QLFileSetResolver.java:108)
-                              	at com.semmle.frontend.imports.QLFileSetResolver.resolveFileSet(QLFileSetResolver.java:71)
-                              	at com.semmle.cli2.ql.CompilationCommon$OneCompilation.compileInner(CompilationCommon.java:312)
-                              	at com.semmle.cli2.ql.CompilationCommon$OneCompilation.compile(CompilationCommon.java:263)
-                              	at com.semmle.cli2.ql.CompilationCommon$OneCompilation.access$000(CompilationCommon.java:236)
-                              	at com.semmle.cli2.ql.CompilationCommon.compile(CompilationCommon.java:233)
-                              	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.compileAndPrepareQuery(QueryServer2Command.java:408)
-                              	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$runQuery$26(QueryServer2Command.java:465)
-                              	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:217)
-                              	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$runQuery$28(QueryServer2Command.java:457)
-                              	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$withProgressAndCancellation$15(QueryServer2Command.java:346)
-                              	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:217)
-                              	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$withProgressAndCancellation$16(QueryServer2Command.java:346)
-                              	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-                              	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-                              	at java.base/java.lang.Thread.run(Unknown Source)
-                              Caused by: java.nio.file.NoSuchFileException: C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-solidity\solidity.dbscheme.stats
-                              	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
-                              	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
-                              	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
-                              	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
-                              	at java.base/java.nio.file.Files.newByteChannel(Unknown Source)
-                              	at java.base/java.nio.file.Files.newByteChannel(Unknown Source)
-                              	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(Unknown Source)
-                              	at java.base/java.nio.file.Files.newInputStream(Unknown Source)
-                              	at com.semmle.util.io.WholeIO.read(WholeIO.java:288)
-                              	at com.semmle.util.io.WholeIO.strictread(WholeIO.java:339)
-                              	... 17 common frames omitted
-Apr 07, 2023 11:38:12 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
-SEVERE: Internal error: Failed to read path C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-solidity\solidity.dbscheme.stats
-(eventual cause: NoSuchFileException "C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-so...")
-java.util.concurrent.CompletionException: Failed to read path C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-solidity\solidity.dbscheme.stats
-(eventual cause: NoSuchFileException "C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-so...")
-	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(Unknown Source)
-	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(Unknown Source)
-	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(Unknown Source)
-	at java.base/java.util.concurrent.CompletableFuture.uniExceptionallyStage(Unknown Source)
-	at java.base/java.util.concurrent.CompletableFuture.exceptionally(Unknown Source)
-	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$runQuery$28(QueryServer2Command.java:503)
-	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$withProgressAndCancellation$15(QueryServer2Command.java:346)
-	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:217)
-	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$withProgressAndCancellation$16(QueryServer2Command.java:346)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.base/java.lang.Thread.run(Unknown Source)
-Caused by: Failed to read path C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-solidity\solidity.dbscheme.stats
-(eventual cause: NoSuchFileException "C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-so...")
-	at com.semmle.util.io.WholeIO.strictread(WholeIO.java:341)
-	at com.semmle.frontend.imports.QLFileSetResolver.addDbscheme(QLFileSetResolver.java:164)
-	at com.semmle.frontend.imports.QLFileSetResolver.resolveFileSet(QLFileSetResolver.java:108)
-	at com.semmle.frontend.imports.QLFileSetResolver.resolveFileSet(QLFileSetResolver.java:71)
-	at com.semmle.cli2.ql.CompilationCommon$OneCompilation.compileInner(CompilationCommon.java:312)
-	at com.semmle.cli2.ql.CompilationCommon$OneCompilation.compile(CompilationCommon.java:263)
-	at com.semmle.cli2.ql.CompilationCommon$OneCompilation.access$000(CompilationCommon.java:236)
-	at com.semmle.cli2.ql.CompilationCommon.compile(CompilationCommon.java:233)
-	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.compileAndPrepareQuery(QueryServer2Command.java:408)
-	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$runQuery$26(QueryServer2Command.java:465)
-	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:217)
-	at com.semmle.cli2.execute.queryServer2.QueryServer2Command$Impl.lambda$runQuery$28(QueryServer2Command.java:457)
-	... 6 more
-Caused by: java.nio.file.NoSuchFileException: C:\Users\hdthinh1012\LVTN_CodeQL_Database\solidity\database\dummy-solidity\db-solidity\solidity.dbscheme.stats
-	at java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
-	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
-	at java.base/java.nio.file.Files.newByteChannel(Unknown Source)
-	at java.base/java.nio.file.Files.newByteChannel(Unknown Source)
-	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(Unknown Source)
-	at java.base/java.nio.file.Files.newInputStream(Unknown Source)
-	at com.semmle.util.io.WholeIO.read(WholeIO.java:288)
-	at com.semmle.util.io.WholeIO.strictread(WholeIO.java:339)
-	... 17 more
+## Current Issues
 
-Error running query: Internal error. (codeQL.runQueryContextEditor)
-Error: Error running query: Internal error.
-    at handleResponse (c:\Users\hdthinh1012\.vscode\extensions\github.vscode-codeql-1.8.1\out\extension.js:4399:40)
-    at processMessageQueue (c:\Users\hdthinh1012\.vscode\extensions\github.vscode-codeql-1.8.1\out\extension.js:4222:13)
-    at Immediate.<anonymous> (c:\Users\hdthinh1012\.vscode\extensions\github.vscode-codeql-1.8.1\out\extension.js:4208:11)
-    at processImmediate (node:internal/timers:466:21)
-```
-
-It seems that `solidity.dbscheme.stats` is lacking from the directory `db-solidity`
+Using vscode-codeql-starter, running queries that import module 'solidity' will be errored as cannot resolve module 'solidity' and the CodeQL extension recommend to use qlpack.cmd both to publish packs contain core libraries for solidity (like `hdthinh1012/solidity-all`) and import to the packs contain the current user queries.
