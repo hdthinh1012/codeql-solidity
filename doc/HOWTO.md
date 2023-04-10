@@ -94,14 +94,17 @@ drwxrwxrwx 1 hdthinh1012 hdthinh1012  512 Apr  7 22:51 log
 ```
 ### Fix lacking solidity.dbscheme.stats
 
-Run command `codeql dataset measure` after generating raw QL dataset directory in <database-directory>/db-solidity
+Run command `codeql dataset measure` after generating raw QL dataset directory in <database-directory>/db-solidity. After that running any queries that without importing solidity module yet will be success.
 
-```
-codeql dataset measure --output=/mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/db-solidity/solidity.dbscheme.stats /mnt/c/Users/hdthinh1012/LVTN_CodeQL_Database/solidity/database/dummy-solidity/db-solidity/
-```
-
-After that any query that without importing module `solidity`, run normally
 
 ## Current Issues
 
 Using vscode-codeql-starter, running queries that import module 'solidity' will be errored as cannot resolve module 'solidity' and the CodeQL extension recommend to use qlpack.cmd both to publish packs contain core libraries for solidity (like `hdthinh1012/solidity-all`) and import to the packs contain the current user queries.
+
+## Running qltests
+
+Run
+
+```bash
+codeql test run <test-path> --search-path <extractor-pack-path>
+```
