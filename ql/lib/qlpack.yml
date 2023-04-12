@@ -1,0 +1,9 @@
+name: hdthinh1012/solidity-all
+version: 0.0.1
+dbscheme: solidity.dbscheme
+library: true
+dependencies:
+  codeql/regex: ${workspace}
+  codeql/ssa: ${workspace}
+  codeql/tutorial: ${workspace}
+  codeql/util: ${workspace}
