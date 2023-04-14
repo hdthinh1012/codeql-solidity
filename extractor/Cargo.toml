@@ -9,8 +9,8 @@ edition = "2018"
 [dependencies]
 flate2 = "1.0"
 node-types = { path = "../node-types" }
-tree-sitter = "0.19.5"
-tree-sitter-solidity = "0.0.3"
+tree-sitter-unofficial = "0.0.1"
+tree-sitter-solidity-unofficial = "0.0.2"
 clap = "3.0"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3.3", features = ["env-filter"] }
@@ -19,6 +19,7 @@ num_cpus = "1.13.0"
 regex = "1.5.5"
 encoding = "0.2"
 lazy_static = "1.4.0"
+libc = "0.2.141"
 
 [build-dependencies]
 cc = "*"

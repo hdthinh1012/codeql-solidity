@@ -7,12 +7,13 @@ extern crate num_cpus;
 
 use clap::arg;
 use encoding::{self};
+use libc;
 use rayon::prelude::*;
 use std::borrow::Cow;
 use std::fs;
 use std::io::BufRead;
 use std::path::{Path, PathBuf};
-use tree_sitter::{Language, Parser, Range};
+use tree_sitter_unofficial::{Language, Parser, Range};
 
 /**
  * Gets the number of threads the extractor should use, by reading the
@@ -105,8 +106,8 @@ fn main() -> std::io::Result<()> {
     let file_list = matches.value_of("file-list").expect("missing --file-list");
     let file_list = fs::File::open(file_list)?;
 
-    let language = tree_sitter_solidity::language();
-    let schema = node_types::read_node_types_str("solidity", tree_sitter_solidity::NODE_TYPES)?;
+    let language = tree_sitter_solidity_unofficial::language();
+    let schema = node_types::read_node_types_str("solidity", tree_sitter_solidity_unofficial::NODE_TYPES)?;
     let lines: std::io::Result<Vec<String>> = std::io::BufReader::new(file_list).lines().collect();
     let lines = lines?;
     lines

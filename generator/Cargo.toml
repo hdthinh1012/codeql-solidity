@@ -11,8 +11,8 @@ clap = "3.0"
 node-types = { path = "../node-types" }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3.3", features = ["env-filter"] }
-tree-sitter = "0.19.5"
-tree-sitter-solidity = "0.0.3"
+tree-sitter = "0.20"
+tree-sitter-solidity-unofficial = "0.0.1"
 
 [build-dependencies]
 cc = "*"

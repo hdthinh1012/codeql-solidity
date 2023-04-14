@@ -6,7 +6,7 @@ use std::fmt;
 use std::path::Path;
 
 use tracing::{error, info, span, Level};
-use tree_sitter::{Language, Node, Parser, Range, Tree};
+use tree_sitter_unofficial::{Language, Node, Parser, Range, Tree};
 
 pub fn populate_file(writer: &mut trap::Writer, absolute_path: &Path) -> trap::Label {
     let (file_label, fresh) =
