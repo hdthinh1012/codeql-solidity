@@ -224,6 +224,11 @@ The commit seemed not included in even the latest release version of tree-sitter
 ### tree-sitter-solidity-unofficial
 1. Update Cargo.toml, include the 'tree-sitter-unofficial' as dependency.
 
+### Results
+Now compile in Windows succeed
+
+## Test the newly create extractor in Windows
+
 ## Running qltests
 
 Run
