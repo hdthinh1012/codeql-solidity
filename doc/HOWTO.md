@@ -3,11 +3,11 @@
 
 Projects refered in this README and its repo
 
-[solidity-codeql-library-projects](https://github.com/hdthinh1012/solidity-codeql-library-project): copy from Ruby extractor sources ,main project, which is this repository
-[vscode-codeql-starter](https://github.com/hdthinh1012/vscode-codeql-starter): cloned, use the `dev` branch
-[codeql](https://github.com/hdthinh1012/codeql): cloned, use the `dev-solidity` branch
-[tree-sitter](https://github.com/hdthinh1012/tree-sitter): cloned
-[tree-sitter-solidity](https://github.com/hdthinh1012/tree-sitter-solidity): cloned
+[solidity-codeql-library-projects](https://github.com/hdthinh1012/solidity-codeql-library-project): copy from Ruby extractor sources ,main project, which is this repository  
+[vscode-codeql-starter](https://github.com/hdthinh1012/vscode-codeql-starter): cloned, use the `dev` branch  
+[codeql](https://github.com/hdthinh1012/codeql): cloned, use the `dev-solidity` branch  
+[tree-sitter](https://github.com/hdthinh1012/tree-sitter): cloned  
+[tree-sitter-solidity](https://github.com/hdthinh1012/tree-sitter-solidity): cloned  
 ## WSL2 
 [Install Rust](https://www.rust-lang.org/tools/install), then run:
 
