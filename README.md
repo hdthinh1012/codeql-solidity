@@ -10,22 +10,27 @@ This dummy project, not yet achieve its goal, contains 2 components:
 The project dashboard [here](https://github.com/users/hdthinh1012/projects/1)
 
 # Projects dependencies
-## Directly copied source code from
+## Directly copy source code from
 [JoranHonig's tree-sitter-solidity](https://github.com/JoranHonig/tree-sitter-solidity)  
 Github codeql libraries  
 Github tree-sitter
 
-## Repository used in this current project
-[solidity-codeql-library-projects](https://github.com/hdthinh1012/solidity-codeql-library-project): copy from Ruby extractor sources ,main project, which is this repository  
-[vscode-codeql-starter](https://github.com/hdthinh1012/vscode-codeql-starter): cloned, use the `dev` branch  
-[codeql](https://github.com/hdthinh1012/codeql): cloned, use the `dev-solidity` branch  
+## Repositories used in this current project
+[solidity-codeql-library-projects](https://github.com/hdthinh1012/solidity-codeql-library-project) `main` branch: copy from Ruby extractor sources ,main project, which is this repository.   
+[vscode-codeql-starter](https://github.com/hdthinh1012/vscode-codeql-starter) `dev` branch  
+[codeql](https://github.com/hdthinh1012/codeql) `dev-solidity` branch
+
+When contribute, your branch name will be `dev-<github username>` and pull request is merge into the branch state above.
+
+## Depenencies repositories
 [tree-sitter](https://github.com/hdthinh1012/tree-sitter): cloned  
 [tree-sitter-solidity](https://github.com/hdthinh1012/tree-sitter-solidity): cloned  
 
 
 # Build Solidity Extractor
+First clone [solidity-codeql-library-projects](https://github.com/hdthinh1012/solidity-codeql-library-project), checkout to your branch named `dev-username`, follow command using `cargo` to build for WSL2 or Windows below.
+
 ## WSL2 
-Cloned this repo  
 [Install Rust](https://www.rust-lang.org/tools/install), then run:
 
 ```bash
@@ -42,59 +47,10 @@ cargo run --release -p solidity-generator -- --dbscheme ql/lib/solidity.dbscheme
 # Then auto-format the QL library
 codeql query format -i ql/lib/codeql/solidity/ast/internal/TreeSitter.qll
 ```
-
 ### Building a CodeQL database for a Solidity program
 
-First, get an extractor pack:
+Run `scripts/create-extractor-pack.sh` (Linux/Mac) and the pack will be created in the `extractor-pack` directory.
 
-Run `scripts/create-extractor-pack.sh` (Linux/Mac) or `scripts\create-extractor-pack.ps1` (Windows PowerShell) and the pack will be created in the `extractor-pack` directory.
-
-### Create symbolic link from codeql cli directory to ./extractor-path
-```
-cd ~/codeql-home/codeql/codeql
-#or in case of WSL
-cd /mnt/c/Users/<user-home>/codeql-home/codeql/codeql
-
-ln -s <extractor-pack-path> solidity
-```
-Check resolve languages
-```
-codeql resolve languages
-
-"""
-cpp (/mnt/c/Users/hdthinh1012/codeql-home/codeql/codeql/cpp)
-csharp (/mnt/c/Users/hdthinh1012/codeql-home/codeql/codeql/csharp)
-...
-solidity (/mnt/c/Users/hdthinh1012/codeql-home/codeql/codeql/solidity)
-xml (/mnt/c/Users/hdthinh1012/codeql-home/codeql/codeql/xml)
-"""
-```
-## Windows Issues
-Note: Official tree-sitter project repository has not merged the pull request that fixing compiling issue for MSVC, so I have to clone and publish custom cargo create 'tree-sitter-unofficial' and 'tree-sitter-solidity-unofficial'  
-
-### Creating custom crate tree-sitter-unofficial and tree-sitter-solidity-unofficial 
-
-The commit [6e0c49305e003d69cb6418a0cb8a9b1744035afe](https://github.com/tree-sitter/tree-sitter/pull/1411/commits) states that 'fdopen' is deprecate for MSVC clang compiler, now changed to __fdopen instead. 
-```
-src/./parser.c:1781:28: warning: 'fdopen' is deprecated: The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _fdopen. See online help for details. [-Wdeprecated-declarations]
-```
-The commit seemed not included in even the latest release version of tree-sitter (0.20.8) for some reason, which cause the build command `cargo build --release` on this repository to fail on Windows.  
-
-So I haved cloned and republished crate `tree-sitter-unofficial` and `tree-sitter-solidity-unofficial`, here are the step I have done: 
-
-- tree-sitter-unofficial
-  1. Cloned tree-sitter (all branch)
-  2. Merge all these commit from these 2 opening pq from this repository https://github.com/aminya/tree-sitter 
-      - https://github.com/tree-sitter/tree-sitter/pull/1411 branch c-warning
-      - https://github.com/tree-sitter/tree-sitter/pull/1835 branch clang
-  3. Publish crate tree-sitter-unofficial
-
-- tree-sitter-solidity-unofficial
-  1. Update Cargo.toml, include the 'tree-sitter-unofficial' as dependency.
-  2. Publish crate tree-sitter-solidity-unofficial
-
-
-Now compiling in Windows will succeed and able to extract solidity source code into solidity database. 
 
 ## Windows
  So clone this repo, [Install Rust](https://www.rust-lang.org/tools/install), then run:
@@ -102,16 +58,25 @@ Now compiling in Windows will succeed and able to extract solidity source code i
 ```bash
 cargo build --release
 ```
+### Generating the database schema and QL library
 
+The generated `ql/lib/solidity.dbscheme` and `ql/lib/codeql/solidity/ast/internal/TreeSitter.qll` files are included in the repository, but they can be re-generated as follows:
+
+```bash
+# Run the generator
+cargo run --release -p solidity-generator -- --dbscheme ql/lib/solidity.dbscheme --library ql/lib/codeql/solidity/ast/internal/TreeSitter.qll
+# Then auto-format the QL library
+codeql query format -i ql/lib/codeql/solidity/ast/internal/TreeSitter.qll
+```
 
 ### Building a CodeQL database for a Solidity program
 
-First, get an extractor pack:
+Run `scripts\create-extractor-pack.ps1` (Windows PowerShell) and the pack will be created in the `extractor-pack` directory.
 
-Run `scripts/create-extractor-pack.sh` (Linux/Mac) or `scripts\create-extractor-pack.ps1` (Windows PowerShell) and the pack will be created in the `extractor-pack` directory.
+# Add Solidity extractor to CodeQL CLI
+Install [CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli#1-download-the-codeql-cli-zip-package) locally on your machine if you haven't already. The directory path containing your CLI if you follow the CodeQL CLI install guide strictly tends to be in `<user-home>/codeql-home/codeql/codeql` (distinguish with repository `github/codeq` which is QL libraries, not closed-source CLI).
 
-### Adding the newly create extractor-pack to codeql CLI folder
-Copy the 'extractor-pack\' to '<user-home>\codeql-home\codeql\codeql\' rename to `solidity`
+Copy the `extractor-pack` directory you just build in above step into `<user-home>/codeql-home/codeql/codeql`, rename it to `solidity`
 
 Check resolve languages
 ```
@@ -120,7 +85,7 @@ codeql resolve languages
 cpp (C:\Users\hdthinh1012\codeql-home\codeql\codeql\cpp)
 csharp (C:\Users\hdthinh1012\codeql-home\codeql\codeql\csharp)
 ...
-solidity (C:\Users\hdthinh1012\codeql-home\codeql\codeql\solidity)
+solidity (C:\Users\hdthinh1012\codeql-home\codeql\codeql\solidity) # The codeql CLI detects the solidity extractor
 xml (C:\Users\hdthinh1012\codeql-home\codeql\codeql\xml)
 ```
 
@@ -148,24 +113,27 @@ drwxrwxrwx 1 hdthinh1012 hdthinh1012  512 Apr  7 22:51 log
 -rwxrwxrwx 1 hdthinh1012 hdthinh1012 3243 Apr  7 22:51 src.zip
 ```
 
+## Creating solidity.dbscheme.stats required for any QL queries to run successfully on the solidity databases
+
+Run command [`codeql dataset measure`](https://docs.github.com/en/code-security/codeql-cli/codeql-cli-manual/dataset-measure) after generating raw QL dataset directory in `<database-directory>/db-solidity`, a solidity.dbscheme.stats will be generated, which is necessary for query step.
+ 
+After that running any queries on the database but without importing `solidity` module yet will be success.
+
 # Running queries with VSCode CodeQL Starter
 
-## 1. Creating solidity.dbscheme.stats required for any QL queries to run successfully on the solidity databases
+Secondly, clone custom [vscode-codeql-starter](https://github.com/hdthinh1012/vscode-codeql-starter), checkout to `dev` branch which is actually main branch in the forked project, your branch must be named `dev-<username>`.
 
-Run command [`codeql dataset measure`](https://docs.github.com/en/code-security/codeql-cli/codeql-cli-manual/dataset-measure) after generating raw QL dataset directory in <database-directory>/db-solidity, copy solidity.dbscheme.stats into this repository `ql/lib`
- 
-After that running any queries that without importing solidity module yet will be success.
-
-## 2. Adding core libraries QLL files
+## Setup new 'QL' directory containing solidity libraries into vscode-codeql-starter
 
 Running queries in [vscode-codeql-starter](https://github.com/hdthinh1012/vscode-codeql-starter) that import module 'solidity' will be errored as cannot resolve module 'solidity'. Steps to fix the issue:
 - The `ql` folder that opened in the vscode-codeql-starter workspace (which is a submodule cloned from `hdthinh1012/codeql` libraries repository) must include a submodule `solidity` (which is a nest submodule cloned from `hdthinh1012/solidity-codeql-libraries-project`)
 - Must use [codeql-packs](https://docs.github.com/en/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs) combined with [codeql-workspace.yml](https://docs.github.com/en/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces#the-codeql-workspaceyml-file) to declared to the CodeQL workspaces about qlpack.cmd locations.
 
 ### Using repository [hdthinh1012/codeql](https://github.com/hdthinh1012/codeql) as `ql` module in vscode-codeql-starter instead of github/codeql
-Instead viewing the default submodule `ql` in vscode-codeql-starter workspace, remove it and add the folder cloned from [hdthinh1012/codeql](https://github.com/hdthinh1012/codeql) (switch to branch `dev`) as the libraries folder.
 
-The `codeql-workspace.yml` found in `codeql` has declared all qlpack.cmd for VSCode:
+Third, clone with `recurse-submodule` option the [hdthinh1012/codeql repo](https://github.com/hdthinh1012/codeql), checkout to `dev-solidity` which is main branch of this repo, then checkout to your branch `dev-<username>`
+
+Then remove the default submodule `ql` in vscode-codeql-starter workspace and add the folder cloned from [hdthinh1012/codeql](https://github.com/hdthinh1012/codeql) (switch to branch `dev-solidity`) as the libraries directory. The `codeql-workspace.yml` found in `ql` directory has declared all qlpack.cmd for VSCode extension to import pack locally:
 ```
 provide:
   - "*/ql/src/qlpack.yml"
@@ -174,23 +142,9 @@ provide:
   - "*/ql/examples/qlpack.yml"
   - "*/ql/consistency-queries/qlpack.yml"
   - "shared/*/qlpack.yml"
-  - "cpp/ql/test/query-tests/Security/CWE/CWE-190/semmle/tainted/qlpack.yml"
-  - "go/ql/config/legacy-support/qlpack.yml"
-  - "go/build/codeql-extractor-go/codeql-extractor.yml"
-  - "javascript/ql/experimental/adaptivethreatmodeling/lib/qlpack.yml"
-  - "javascript/ql/experimental/adaptivethreatmodeling/modelbuilding/qlpack.yml"
-  - "javascript/ql/experimental/adaptivethreatmodeling/src/qlpack.yml"
-  - "javascript/ql/experimental/adaptivethreatmodeling/test/qlpack.yml"
-  - "csharp/ql/campaigns/Solorigate/lib/qlpack.yml"
-  - "csharp/ql/campaigns/Solorigate/src/qlpack.yml"
-  - "csharp/ql/campaigns/Solorigate/test/qlpack.yml"
-  - "misc/legacy-support/*/qlpack.yml"
-  - "misc/suite-helpers/qlpack.yml"
-  - "ruby/extractor-pack/codeql-extractor.yml"
-  - "swift/extractor-pack/codeql-extractor.yml"
-  - "swift/integration-tests/qlpack.yml"
+   ...
   - "ql/extractor-pack/codeql-extractor.yml"
-...
+   ...
 ```
 
 The qlpack.cmd that declared `hdthinh1012/solidity-all` packs is in `<codeql-repo>/solidity/ql/lib/`
@@ -207,9 +161,19 @@ dependencies:
 
 ```
 
+### Adding codeql-custom-queries-solidity
+In the hdthinh1012/vscode-codeql-starter, when checking out to dev branch, a `codeql-custom-queries-solidity` directory will appear, please add this into current open VSCode workspace.
+
+There is a simple file `example.ql` that contains language-agnostic query that just using recursion a list a range of integer. We will try to add more and more related part with solidity:
+
+- Nothing related to solidity: pass
+- [Just `import solidity` to get the libraries and trigger checks of `solidity.dbscheme`](https://github.com/users/hdthinh1012/projects/1?pane=issue&itemId=25746878): failed, stuck at some upgrade/downgrade feature related to CLI/dbscheme version discrepancies between the queried database vs CodeQL Cli (the solidity extractor-pack that we copy-pasted early on)
+- [Queries tree-sitter wrapper](https://github.com/users/hdthinh1012/projects/1?pane=issue&itemId=25746892): to do
+- [Queries tree-sitter token](https://github.com/users/hdthinh1012/projects/1?pane=issue&itemId=25746899): to do
+- [Queries tree-sitter AST](https://github.com/users/hdthinh1012/projects/1?pane=issue&itemId=25746906): to do 
 
 
-## 3. (Temp-fixed Issue) Fixing AstNode.getLocation() override
+## (Issue 1) Fixing AstNode.getLocation() override
 Some class declared in TreeSitter.qll extends from AstNode, @solidity_<equivalent_node_name>:
 ```ql
   /** A class representing `parameter` nodes. */
@@ -270,7 +234,7 @@ Currently, the solution is temporarily comment all the derived method.
 
 
 
-## 4. (Issue) Upgrade or Downgrade related to version diff between database schema
+## (Issue 2) Upgrade or Downgrade related to version diff between database schema
 During setup step of QL evaluation on selected database (right click menu in VSCode extenstion), the tools run a command `codeql resolve upgrades `
 
 Running example.ql that has `import solidity` in the first line, get the error:
@@ -292,3 +256,35 @@ Mainly records about current state of the `ql/lib` folder, where most of my work
 - TreeSitter.qll, solidity.dbscheme: generate from solidity-generator
 - codeql/files/FileSystem.qll: copy from Ruby
 - codeql/Locations.qll: copy from Ruby
+
+# Contribution guide
+Currently, just checkout branch with name `dev-<your github username>` is enough. If the project happens to grow into something useful, there will be a new guide.
+
+# Additional Note
+Note for myself only, not for anyone
+## Windows Issues
+Note: Official tree-sitter project repository has not merged the pull request that fixing compiling issue for MSVC, so I have to clone and publish custom cargo create 'tree-sitter-unofficial' and 'tree-sitter-solidity-unofficial'  
+
+### Creating custom crate tree-sitter-unofficial and tree-sitter-solidity-unofficial 
+
+The commit [6e0c49305e003d69cb6418a0cb8a9b1744035afe](https://github.com/tree-sitter/tree-sitter/pull/1411/commits) states that 'fdopen' is deprecate for MSVC clang compiler, now changed to __fdopen instead. 
+```
+src/./parser.c:1781:28: warning: 'fdopen' is deprecated: The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _fdopen. See online help for details. [-Wdeprecated-declarations]
+```
+The commit seemed not included in even the latest release version of tree-sitter (0.20.8) for some reason, which cause the build command `cargo build --release` on this repository to fail on Windows.  
+
+So I haved cloned and republished crate `tree-sitter-unofficial` and `tree-sitter-solidity-unofficial`, here are the step I have done: 
+
+- tree-sitter-unofficial
+  1. Cloned tree-sitter (all branch)
+  2. Merge all these commit from these 2 opening pq from this repository https://github.com/aminya/tree-sitter 
+      - https://github.com/tree-sitter/tree-sitter/pull/1411 branch c-warning
+      - https://github.com/tree-sitter/tree-sitter/pull/1835 branch clang
+  3. Publish crate tree-sitter-unofficial
+
+- tree-sitter-solidity-unofficial
+  1. Update Cargo.toml, include the 'tree-sitter-unofficial' as dependency.
+  2. Publish crate tree-sitter-solidity-unofficial
+
+
+Now compiling in Windows will succeed and able to extract solidity source code into solidity database. 
