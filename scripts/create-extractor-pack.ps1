@@ -5,7 +5,7 @@ codeql query format -i ql\lib\codeql/solidity\ast\internal\TreeSitter.qll
 
 Remove-Item -Recurse -Force extractor-pack
 mkdir extractor-pack | Out-Null
-Copy-Item codeql-extractor.yml, ql\lib\solidity.dbscheme, ql\lib\solidity.dbscheme.stats extractor-pack
+Copy-Item codeql-extractor.yml, ql\lib\solidity.dbscheme, ql\lib\solidity.dbscheme.stats extractor-pack #  ql\lib\solidity.dbscheme.stats will be copy from a solidity database after running codeql database measure
 Copy-Item -Recurse tools extractor-pack
 # Copy-Item -Recurse downgrades extractor-pack
 mkdir extractor-pack\tools\win64 | Out-Null

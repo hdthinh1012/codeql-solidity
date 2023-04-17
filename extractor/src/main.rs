@@ -7,13 +7,11 @@ extern crate num_cpus;
 
 use clap::arg;
 use encoding::{self};
-use libc;
 use rayon::prelude::*;
 use std::borrow::Cow;
 use std::fs;
 use std::io::BufRead;
 use std::path::{Path, PathBuf};
-use tree_sitter_unofficial::{Language, Parser, Range};
 
 /**
  * Gets the number of threads the extractor should use, by reading the
@@ -107,7 +105,8 @@ fn main() -> std::io::Result<()> {
     let file_list = fs::File::open(file_list)?;
 
     let language = tree_sitter_solidity_unofficial::language();
-    let schema = node_types::read_node_types_str("solidity", tree_sitter_solidity_unofficial::NODE_TYPES)?;
+    let schema =
+        node_types::read_node_types_str("solidity", tree_sitter_solidity_unofficial::NODE_TYPES)?;
     let lines: std::io::Result<Vec<String>> = std::io::BufReader::new(file_list).lines().collect();
     let lines = lines?;
     lines
@@ -117,8 +116,43 @@ fn main() -> std::io::Result<()> {
             let src_archive_file = path_for(&src_archive_dir, &path, "");
             let mut source = std::fs::read(&path)?;
             let mut needs_conversion = false;
-
             let mut trap_writer = trap::Writer::new();
+
+            if let Some(encoding_name) = scan_coding_comment(&source) {
+                // If the input is already UTF-8 then there is no need to recode the source
+                // If the declared encoding is 'binary' or 'ascii-8bit' then it is not clear how
+                // to interpret characters. In this case it is probably best to leave the input
+                // unchanged.
+                if !encoding_name.eq_ignore_ascii_case("utf-8")
+                    && !encoding_name.eq_ignore_ascii_case("ascii-8bit")
+                    && !encoding_name.eq_ignore_ascii_case("binary")
+                {
+                    if let Some(encoding) = encoding_from_name(&encoding_name) {
+                        needs_conversion = encoding.whatwg_name().unwrap_or_default() != "utf-8";
+                        if needs_conversion {
+                            match encoding.decode(&source, encoding::types::DecoderTrap::Replace) {
+                                Ok(str) => source = str.as_bytes().to_owned(),
+                                Err(msg) => {
+                                    needs_conversion = false;
+                                    tracing::warn!(
+                                        "{}: character decoding failure: {} ({})",
+                                        &path.to_string_lossy(),
+                                        msg,
+                                        &encoding_name
+                                    );
+                                }
+                            }
+                        }
+                    } else {
+                        tracing::warn!(
+                            "{}: unknown character encoding: '{}'",
+                            &path.to_string_lossy(),
+                            &encoding_name
+                        );
+                    }
+                }
+            }
+
             extractor::extract(
                 language,
                 "solidity",
@@ -215,4 +249,66 @@ fn skip_space(content: &[u8], index: usize) -> usize {
         index += 1;
     }
     index
+}
+
+fn scan_coding_comment(content: &[u8]) -> std::option::Option<Cow<str>> {
+    let mut index = 0;
+    // skip UTF-8 BOM marker if there is one
+    if content.len() >= 3 && content[0] == 0xef && content[1] == 0xbb && content[2] == 0xbf {
+        index += 3;
+    }
+    // skip #! line if there is one
+    if index + 1 < content.len()
+        && content[index] as char == '#'
+        && content[index + 1] as char == '!'
+    {
+        index += 2;
+        while index < content.len() && content[index] as char != '\n' {
+            index += 1
+        }
+        index += 1
+    }
+    index = skip_space(content, index);
+
+    if index >= content.len() || content[index] as char != '#' {
+        return None;
+    }
+    index += 1;
+
+    const CODING: [char; 12] = ['C', 'c', 'O', 'o', 'D', 'd', 'I', 'i', 'N', 'n', 'G', 'g'];
+    let mut word_index = 0;
+    while index < content.len() && word_index < CODING.len() && content[index] as char != '\n' {
+        if content[index] as char == CODING[word_index]
+            || content[index] as char == CODING[word_index + 1]
+        {
+            word_index += 2
+        } else {
+            word_index = 0;
+        }
+        index += 1;
+    }
+    if word_index < CODING.len() {
+        return None;
+    }
+    index = skip_space(content, index);
+
+    if index < content.len() && content[index] as char != ':' && content[index] as char != '=' {
+        return None;
+    }
+    index += 1;
+    index = skip_space(content, index);
+
+    let start = index;
+    while index < content.len() {
+        let c = content[index] as char;
+        if c == '-' || c == '_' || c.is_ascii_alphanumeric() {
+            index += 1;
+        } else {
+            break;
+        }
+    }
+    if index > start {
+        return Some(String::from_utf8_lossy(&content[start..index]));
+    }
+    None
 }
