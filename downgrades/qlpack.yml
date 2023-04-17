@@ -1,0 +1,4 @@
+name: hdthinh1012/solidity-downgrades
+groups: solidity
+downgrades: .
+library: true
