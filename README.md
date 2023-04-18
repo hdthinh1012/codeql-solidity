@@ -196,7 +196,7 @@ For each commit in `hdthinh1012/solidity-codeql-library-projects`, you must do a
 - Run script `scripts/create-extractor-pack.sh` (Linux) or `scripts/create-extractor-pack.ps1` (Windows) to create `extractor-pack` directory
 - Push new commit in `hdthinh1012/solidity-codeql-library-projects` to remote, pull request to `main` branch.
 - Copy the new `extractor-pack` directory into `<user-home>/codeql-home/codeql/codeql` (where the CodeQL CLI installed), rename to `solidity`, replace the old `solidity` extractor folder if exists.
-- Change directory into `codeql-repo` folder (where the QL libraries installed), checkout the `dev-solidity` branch, fetch the new commit in `solidity` directory with command `git submodule update --remote`
+- Change directory into `codeql-repo` folder (where the QL libraries installed), checkout the `dev-solidity` branch, (discard everychange you have in TreeSitter.qll), fetch the new commit in `solidity` directory with command `git submodule update --remote`
 - Open vscode-codeql-starter workspace in VSCode, add the `codeql-repo` folder into workspace as library, remove `ql` directory out of workspace (not delete, since touching submodule folder breaks everything), test the example queries with solidity module.
 
 
