@@ -194,7 +194,7 @@ For each commit in `hdthinh1012/solidity-codeql-library-projects`, you must do a
 - Commit code in this repository [solidity-codeql-library-projects](https://github.com/hdthinh1012/solidity-codeql-library-project)
 - Run command `cargo clean && cargo build --release`
 - Run script `scripts/create-extractor-pack.sh` (Linux) or `scripts/create-extractor-pack.ps1` (Windows) to create `extractor-pack` directory
-- Push commit to remote, pull request to `main` branch.
+- Push new commit in `hdthinh1012/solidity-codeql-library-projects` to remote, pull request to `main` branch.
 - Copy the new `extractor-pack` directory into `<user-home>/codeql-home/codeql/codeql` (where the CodeQL CLI installed), rename to `solidity`
 - Change directory into `codeql-repo` folder (where the QL libraries installed), checkout the `dev-solidity` branch, fetch the new commit in `solidity` directory with command `git submodule update --remote`
 - Open vscode-codeql-starter workspace in VSCode, choose the codeql-repo as library instead of `ql` directory, test the example queries with solidity module.
