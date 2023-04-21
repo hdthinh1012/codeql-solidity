@@ -2,3 +2,12 @@
 ql/.cache
 ql/**/.cache
 **/.cache
+extractor/target
+extractor-pack
+.vscode/launch.json
+.cache
+ql/test/**/*.testproj
+ql/test/**/*.actual
+ql/test/**/CONSISTENCY
+.codeql
+.Cargo.lock
