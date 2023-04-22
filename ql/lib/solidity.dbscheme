@@ -1,4 +1,4 @@
-// CodeQL database schema for Solidity
+// CodeQL database schema for Erb
 // Automatically generated from the tree-sitter grammar; do not edit
 
 @location = @location_default
@@ -50,1166 +50,1166 @@ case @diagnostic.severity of
 ;
 
 
-@solidity_any_pragma_token_child_type = @solidity_token_identifier | @solidity_token_pragma_value
+@erb_any_pragma_token_child_type = @erb_token_identifier | @erb_token_pragma_value
 
-#keyset[solidity_any_pragma_token, index]
-solidity_any_pragma_token_child(
-  int solidity_any_pragma_token: @solidity_any_pragma_token ref,
+#keyset[erb_any_pragma_token, index]
+erb_any_pragma_token_child(
+  int erb_any_pragma_token: @erb_any_pragma_token ref,
   int index: int ref,
-  unique int child: @solidity_any_pragma_token_child_type ref
+  unique int child: @erb_any_pragma_token_child_type ref
 );
 
-solidity_any_pragma_token_def(
-  unique int id: @solidity_any_pragma_token
+erb_any_pragma_token_def(
+  unique int id: @erb_any_pragma_token
 );
 
-@solidity_array_access_base_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_array_access_base_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-@solidity_array_access_index_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_array_access_index_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_array_access_index(
-  unique int solidity_array_access: @solidity_array_access ref,
-  unique int index: @solidity_array_access_index_type ref
+erb_array_access_index(
+  unique int erb_array_access: @erb_array_access ref,
+  unique int index: @erb_array_access_index_type ref
 );
 
-solidity_array_access_def(
-  unique int id: @solidity_array_access,
-  int base: @solidity_array_access_base_type ref
+erb_array_access_def(
+  unique int id: @erb_array_access,
+  int base: @erb_array_access_base_type ref
 );
 
-@solidity_assembly_statement_child_type = @solidity_token_yul_boolean | @solidity_token_yul_break | @solidity_token_yul_continue | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_token_yul_leave | @solidity_yul_assignment | @solidity_yul_block | @solidity_yul_for_statement | @solidity_yul_function_call | @solidity_yul_function_definition | @solidity_yul_if_statement | @solidity_yul_label | @solidity_yul_string_literal | @solidity_yul_switch_statement | @solidity_yul_variable_declaration
+@erb_assembly_statement_child_type = @erb_token_yul_boolean | @erb_token_yul_break | @erb_token_yul_continue | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_token_yul_leave | @erb_yul_assignment | @erb_yul_block | @erb_yul_for_statement | @erb_yul_function_call | @erb_yul_function_definition | @erb_yul_if_statement | @erb_yul_label | @erb_yul_string_literal | @erb_yul_switch_statement | @erb_yul_variable_declaration
 
-#keyset[solidity_assembly_statement, index]
-solidity_assembly_statement_child(
-  int solidity_assembly_statement: @solidity_assembly_statement ref,
+#keyset[erb_assembly_statement, index]
+erb_assembly_statement_child(
+  int erb_assembly_statement: @erb_assembly_statement ref,
   int index: int ref,
-  unique int child: @solidity_assembly_statement_child_type ref
+  unique int child: @erb_assembly_statement_child_type ref
 );
 
-solidity_assembly_statement_def(
-  unique int id: @solidity_assembly_statement
+erb_assembly_statement_def(
+  unique int id: @erb_assembly_statement
 );
 
-@solidity_assignment_expression_left_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_assignment_expression_left_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-@solidity_assignment_expression_right_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_assignment_expression_right_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_assignment_expression_def(
-  unique int id: @solidity_assignment_expression,
-  int left: @solidity_assignment_expression_left_type ref,
-  int right: @solidity_assignment_expression_right_type ref
+erb_assignment_expression_def(
+  unique int id: @erb_assignment_expression,
+  int left: @erb_assignment_expression_left_type ref,
+  int right: @erb_assignment_expression_right_type ref
 );
 
-@solidity_augmented_assignment_expression_left_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_augmented_assignment_expression_left_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-@solidity_augmented_assignment_expression_right_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_augmented_assignment_expression_right_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_augmented_assignment_expression_def(
-  unique int id: @solidity_augmented_assignment_expression,
-  int left: @solidity_augmented_assignment_expression_left_type ref,
-  int right: @solidity_augmented_assignment_expression_right_type ref
+erb_augmented_assignment_expression_def(
+  unique int id: @erb_augmented_assignment_expression,
+  int left: @erb_augmented_assignment_expression_left_type ref,
+  int right: @erb_augmented_assignment_expression_right_type ref
 );
 
-@solidity_binary_expression_left_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_binary_expression_left_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-case @solidity_binary_expression.operator of
-  0 = @solidity_binary_expression_bangequal
-| 1 = @solidity_binary_expression_bangequalequal
-| 2 = @solidity_binary_expression_percent
-| 3 = @solidity_binary_expression_ampersand
-| 4 = @solidity_binary_expression_ampersandampersand
-| 5 = @solidity_binary_expression_star
-| 6 = @solidity_binary_expression_starstar
-| 7 = @solidity_binary_expression_plus
-| 8 = @solidity_binary_expression_minus
-| 9 = @solidity_binary_expression_slash
-| 10 = @solidity_binary_expression_langle
-| 11 = @solidity_binary_expression_langlelangle
-| 12 = @solidity_binary_expression_langleequal
-| 13 = @solidity_binary_expression_equalequal
-| 14 = @solidity_binary_expression_rangle
-| 15 = @solidity_binary_expression_rangleequal
-| 16 = @solidity_binary_expression_ranglerangle
-| 17 = @solidity_binary_expression_rangleranglerangle
-| 18 = @solidity_binary_expression_caret
-| 19 = @solidity_binary_expression_pipe
-| 20 = @solidity_binary_expression_pipepipe
+case @erb_binary_expression.operator of
+  0 = @erb_binary_expression_bangequal
+| 1 = @erb_binary_expression_bangequalequal
+| 2 = @erb_binary_expression_percent
+| 3 = @erb_binary_expression_ampersand
+| 4 = @erb_binary_expression_ampersandampersand
+| 5 = @erb_binary_expression_star
+| 6 = @erb_binary_expression_starstar
+| 7 = @erb_binary_expression_plus
+| 8 = @erb_binary_expression_minus
+| 9 = @erb_binary_expression_slash
+| 10 = @erb_binary_expression_langle
+| 11 = @erb_binary_expression_langlelangle
+| 12 = @erb_binary_expression_langleequal
+| 13 = @erb_binary_expression_equalequal
+| 14 = @erb_binary_expression_rangle
+| 15 = @erb_binary_expression_rangleequal
+| 16 = @erb_binary_expression_ranglerangle
+| 17 = @erb_binary_expression_rangleranglerangle
+| 18 = @erb_binary_expression_caret
+| 19 = @erb_binary_expression_pipe
+| 20 = @erb_binary_expression_pipepipe
 ;
 
 
-@solidity_binary_expression_right_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_binary_expression_right_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_binary_expression_def(
-  unique int id: @solidity_binary_expression,
-  int left: @solidity_binary_expression_left_type ref,
+erb_binary_expression_def(
+  unique int id: @erb_binary_expression,
+  int left: @erb_binary_expression_left_type ref,
   int operator: int ref,
-  int right: @solidity_binary_expression_right_type ref
+  int right: @erb_binary_expression_right_type ref
 );
 
-@solidity_block_statement_child_type = @solidity_assembly_statement | @solidity_block_statement | @solidity_do_while_statement | @solidity_emit_statement | @solidity_expression_statement | @solidity_for_statement | @solidity_if_statement | @solidity_return_statement | @solidity_revert_statement | @solidity_token_break_statement | @solidity_token_continue_statement | @solidity_try_statement | @solidity_variable_declaration_statement | @solidity_while_statement
+@erb_block_statement_child_type = @erb_assembly_statement | @erb_block_statement | @erb_do_while_statement | @erb_emit_statement | @erb_expression_statement | @erb_for_statement | @erb_if_statement | @erb_return_statement | @erb_revert_statement | @erb_token_break_statement | @erb_token_continue_statement | @erb_try_statement | @erb_variable_declaration_statement | @erb_while_statement
 
-#keyset[solidity_block_statement, index]
-solidity_block_statement_child(
-  int solidity_block_statement: @solidity_block_statement ref,
+#keyset[erb_block_statement, index]
+erb_block_statement_child(
+  int erb_block_statement: @erb_block_statement ref,
   int index: int ref,
-  unique int child: @solidity_block_statement_child_type ref
+  unique int child: @erb_block_statement_child_type ref
 );
 
-solidity_block_statement_def(
-  unique int id: @solidity_block_statement
+erb_block_statement_def(
+  unique int id: @erb_block_statement
 );
 
-@solidity_boolean_literal_child_type = @solidity_token_false | @solidity_token_true
+@erb_boolean_literal_child_type = @erb_token_false | @erb_token_true
 
-solidity_boolean_literal_def(
-  unique int id: @solidity_boolean_literal,
-  int child: @solidity_boolean_literal_child_type ref
+erb_boolean_literal_def(
+  unique int id: @erb_boolean_literal,
+  int child: @erb_boolean_literal_child_type ref
 );
 
-@solidity_call_argument_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_call_struct_argument | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_call_argument_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_call_struct_argument | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_call_argument, index]
-solidity_call_argument_child(
-  int solidity_call_argument: @solidity_call_argument ref,
+#keyset[erb_call_argument, index]
+erb_call_argument_child(
+  int erb_call_argument: @erb_call_argument ref,
   int index: int ref,
-  unique int child: @solidity_call_argument_child_type ref
+  unique int child: @erb_call_argument_child_type ref
 );
 
-solidity_call_argument_def(
-  unique int id: @solidity_call_argument
+erb_call_argument_def(
+  unique int id: @erb_call_argument
 );
 
-@solidity_call_expression_function_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_call_expression_function_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_call_expression, index]
-solidity_call_expression_child(
-  int solidity_call_expression: @solidity_call_expression ref,
+#keyset[erb_call_expression, index]
+erb_call_expression_child(
+  int erb_call_expression: @erb_call_expression ref,
   int index: int ref,
-  unique int child: @solidity_call_argument ref
+  unique int child: @erb_call_argument ref
 );
 
-solidity_call_expression_def(
-  unique int id: @solidity_call_expression,
-  int function: @solidity_call_expression_function_type ref
+erb_call_expression_def(
+  unique int id: @erb_call_expression,
+  int function: @erb_call_expression_function_type ref
 );
 
-@solidity_call_struct_argument_value_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_call_struct_argument_value_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_call_struct_argument_def(
-  unique int id: @solidity_call_struct_argument,
-  int name: @solidity_token_identifier ref,
-  int value: @solidity_call_struct_argument_value_type ref
+erb_call_struct_argument_def(
+  unique int id: @erb_call_struct_argument,
+  int name: @erb_token_identifier ref,
+  int value: @erb_call_struct_argument_value_type ref
 );
 
-@solidity_catch_clause_child_type = @solidity_parameter | @solidity_token_identifier
+@erb_catch_clause_child_type = @erb_parameter | @erb_token_identifier
 
-#keyset[solidity_catch_clause, index]
-solidity_catch_clause_child(
-  int solidity_catch_clause: @solidity_catch_clause ref,
+#keyset[erb_catch_clause, index]
+erb_catch_clause_child(
+  int erb_catch_clause: @erb_catch_clause ref,
   int index: int ref,
-  unique int child: @solidity_catch_clause_child_type ref
+  unique int child: @erb_catch_clause_child_type ref
 );
 
-solidity_catch_clause_def(
-  unique int id: @solidity_catch_clause,
-  int body: @solidity_block_statement ref
+erb_catch_clause_def(
+  unique int id: @erb_catch_clause,
+  int body: @erb_block_statement ref
 );
 
-@solidity_constant_variable_declaration_value_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_constant_variable_declaration_value_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_constant_variable_declaration_def(
-  unique int id: @solidity_constant_variable_declaration,
-  int name: @solidity_token_identifier ref,
-  int type__: @solidity_type_name ref,
-  int value: @solidity_constant_variable_declaration_value_type ref
+erb_constant_variable_declaration_def(
+  unique int id: @erb_constant_variable_declaration,
+  int name: @erb_token_identifier ref,
+  int type__: @erb_type_name ref,
+  int value: @erb_constant_variable_declaration_value_type ref
 );
 
-@solidity_constructor_definition_child_type = @solidity_modifier_invocation | @solidity_parameter
+@erb_constructor_definition_child_type = @erb_modifier_invocation | @erb_parameter
 
-#keyset[solidity_constructor_definition, index]
-solidity_constructor_definition_child(
-  int solidity_constructor_definition: @solidity_constructor_definition ref,
+#keyset[erb_constructor_definition, index]
+erb_constructor_definition_child(
+  int erb_constructor_definition: @erb_constructor_definition ref,
   int index: int ref,
-  unique int child: @solidity_constructor_definition_child_type ref
+  unique int child: @erb_constructor_definition_child_type ref
 );
 
-solidity_constructor_definition_def(
-  unique int id: @solidity_constructor_definition,
-  int body: @solidity_function_body ref
+erb_constructor_definition_def(
+  unique int id: @erb_constructor_definition,
+  int body: @erb_function_body ref
 );
 
-@solidity_contract_body_child_type = @solidity_constructor_definition | @solidity_enum_declaration | @solidity_error_declaration | @solidity_event_definition | @solidity_fallback_receive_definition | @solidity_function_definition | @solidity_modifier_definition | @solidity_state_variable_declaration | @solidity_struct_declaration | @solidity_user_defined_type_definition | @solidity_using_directive
+@erb_contract_body_child_type = @erb_constructor_definition | @erb_enum_declaration | @erb_error_declaration | @erb_event_definition | @erb_fallback_receive_definition | @erb_function_definition | @erb_modifier_definition | @erb_state_variable_declaration | @erb_struct_declaration | @erb_user_defined_type_definition | @erb_using_directive
 
-#keyset[solidity_contract_body, index]
-solidity_contract_body_child(
-  int solidity_contract_body: @solidity_contract_body ref,
+#keyset[erb_contract_body, index]
+erb_contract_body_child(
+  int erb_contract_body: @erb_contract_body ref,
   int index: int ref,
-  unique int child: @solidity_contract_body_child_type ref
+  unique int child: @erb_contract_body_child_type ref
 );
 
-solidity_contract_body_def(
-  unique int id: @solidity_contract_body
+erb_contract_body_def(
+  unique int id: @erb_contract_body
 );
 
-#keyset[solidity_contract_declaration, index]
-solidity_contract_declaration_child(
-  int solidity_contract_declaration: @solidity_contract_declaration ref,
+#keyset[erb_contract_declaration, index]
+erb_contract_declaration_child(
+  int erb_contract_declaration: @erb_contract_declaration ref,
   int index: int ref,
-  unique int child: @solidity_inheritance_specifier ref
+  unique int child: @erb_inheritance_specifier ref
 );
 
-solidity_contract_declaration_def(
-  unique int id: @solidity_contract_declaration,
-  int body: @solidity_contract_body ref,
-  int name: @solidity_token_identifier ref
+erb_contract_declaration_def(
+  unique int id: @erb_contract_declaration,
+  int body: @erb_contract_body ref,
+  int name: @erb_token_identifier ref
 );
 
-@solidity_do_while_statement_body_type = @solidity_assembly_statement | @solidity_block_statement | @solidity_do_while_statement | @solidity_emit_statement | @solidity_expression_statement | @solidity_for_statement | @solidity_if_statement | @solidity_return_statement | @solidity_revert_statement | @solidity_token_break_statement | @solidity_token_continue_statement | @solidity_try_statement | @solidity_variable_declaration_statement | @solidity_while_statement
+@erb_do_while_statement_body_type = @erb_assembly_statement | @erb_block_statement | @erb_do_while_statement | @erb_emit_statement | @erb_expression_statement | @erb_for_statement | @erb_if_statement | @erb_return_statement | @erb_revert_statement | @erb_token_break_statement | @erb_token_continue_statement | @erb_try_statement | @erb_variable_declaration_statement | @erb_while_statement
 
-@solidity_do_while_statement_condition_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_do_while_statement_condition_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_do_while_statement_def(
-  unique int id: @solidity_do_while_statement,
-  int body: @solidity_do_while_statement_body_type ref,
-  int condition: @solidity_do_while_statement_condition_type ref
+erb_do_while_statement_def(
+  unique int id: @erb_do_while_statement,
+  int body: @erb_do_while_statement_body_type ref,
+  int condition: @erb_do_while_statement_condition_type ref
 );
 
-@solidity_emit_statement_name_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_emit_statement_name_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_emit_statement, index]
-solidity_emit_statement_child(
-  int solidity_emit_statement: @solidity_emit_statement ref,
+#keyset[erb_emit_statement, index]
+erb_emit_statement_child(
+  int erb_emit_statement: @erb_emit_statement ref,
   int index: int ref,
-  unique int child: @solidity_call_argument ref
+  unique int child: @erb_call_argument ref
 );
 
-solidity_emit_statement_def(
-  unique int id: @solidity_emit_statement,
-  int name: @solidity_emit_statement_name_type ref
+erb_emit_statement_def(
+  unique int id: @erb_emit_statement,
+  int name: @erb_emit_statement_name_type ref
 );
 
-#keyset[solidity_enum_declaration, index]
-solidity_enum_declaration_child(
-  int solidity_enum_declaration: @solidity_enum_declaration ref,
+#keyset[erb_enum_declaration, index]
+erb_enum_declaration_child(
+  int erb_enum_declaration: @erb_enum_declaration ref,
   int index: int ref,
-  unique int child: @solidity_token_enum_value ref
+  unique int child: @erb_token_enum_value ref
 );
 
-solidity_enum_declaration_def(
-  unique int id: @solidity_enum_declaration,
-  int name: @solidity_token_identifier ref
+erb_enum_declaration_def(
+  unique int id: @erb_enum_declaration,
+  int name: @erb_token_identifier ref
 );
 
-#keyset[solidity_error_declaration, index]
-solidity_error_declaration_child(
-  int solidity_error_declaration: @solidity_error_declaration ref,
+#keyset[erb_error_declaration, index]
+erb_error_declaration_child(
+  int erb_error_declaration: @erb_error_declaration ref,
   int index: int ref,
-  unique int child: @solidity_error_parameter ref
+  unique int child: @erb_error_parameter ref
 );
 
-solidity_error_declaration_def(
-  unique int id: @solidity_error_declaration,
-  int name: @solidity_token_identifier ref
+erb_error_declaration_def(
+  unique int id: @erb_error_declaration,
+  int name: @erb_token_identifier ref
 );
 
-solidity_error_parameter_name(
-  unique int solidity_error_parameter: @solidity_error_parameter ref,
-  unique int name: @solidity_token_identifier ref
+erb_error_parameter_name(
+  unique int erb_error_parameter: @erb_error_parameter ref,
+  unique int name: @erb_token_identifier ref
 );
 
-solidity_error_parameter_def(
-  unique int id: @solidity_error_parameter,
-  int type__: @solidity_type_name ref
+erb_error_parameter_def(
+  unique int id: @erb_error_parameter,
+  int type__: @erb_type_name ref
 );
 
-#keyset[solidity_event_definition, index]
-solidity_event_definition_child(
-  int solidity_event_definition: @solidity_event_definition ref,
+#keyset[erb_event_definition, index]
+erb_event_definition_child(
+  int erb_event_definition: @erb_event_definition ref,
   int index: int ref,
-  unique int child: @solidity_event_paramater ref
+  unique int child: @erb_event_paramater ref
 );
 
-solidity_event_definition_def(
-  unique int id: @solidity_event_definition,
-  int name: @solidity_token_identifier ref
+erb_event_definition_def(
+  unique int id: @erb_event_definition,
+  int name: @erb_token_identifier ref
 );
 
-solidity_event_paramater_name(
-  unique int solidity_event_paramater: @solidity_event_paramater ref,
-  unique int name: @solidity_token_identifier ref
+erb_event_paramater_name(
+  unique int erb_event_paramater: @erb_event_paramater ref,
+  unique int name: @erb_token_identifier ref
 );
 
-solidity_event_paramater_def(
-  unique int id: @solidity_event_paramater,
-  int type__: @solidity_type_name ref
+erb_event_paramater_def(
+  unique int id: @erb_event_paramater,
+  int type__: @erb_type_name ref
 );
 
-@solidity_expression_statement_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_expression_statement_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_expression_statement_def(
-  unique int id: @solidity_expression_statement,
-  int child: @solidity_expression_statement_child_type ref
+erb_expression_statement_def(
+  unique int id: @erb_expression_statement,
+  int child: @erb_expression_statement_child_type ref
 );
 
-solidity_fallback_receive_definition_body(
-  unique int solidity_fallback_receive_definition: @solidity_fallback_receive_definition ref,
-  unique int body: @solidity_function_body ref
+erb_fallback_receive_definition_body(
+  unique int erb_fallback_receive_definition: @erb_fallback_receive_definition ref,
+  unique int body: @erb_function_body ref
 );
 
-@solidity_fallback_receive_definition_child_type = @solidity_modifier_invocation | @solidity_override_specifier | @solidity_parameter | @solidity_token_state_mutability | @solidity_token_virtual | @solidity_token_visibility
+@erb_fallback_receive_definition_child_type = @erb_modifier_invocation | @erb_override_specifier | @erb_parameter | @erb_token_state_mutability | @erb_token_virtual | @erb_token_visibility
 
-#keyset[solidity_fallback_receive_definition, index]
-solidity_fallback_receive_definition_child(
-  int solidity_fallback_receive_definition: @solidity_fallback_receive_definition ref,
+#keyset[erb_fallback_receive_definition, index]
+erb_fallback_receive_definition_child(
+  int erb_fallback_receive_definition: @erb_fallback_receive_definition ref,
   int index: int ref,
-  unique int child: @solidity_fallback_receive_definition_child_type ref
+  unique int child: @erb_fallback_receive_definition_child_type ref
 );
 
-solidity_fallback_receive_definition_def(
-  unique int id: @solidity_fallback_receive_definition
+erb_fallback_receive_definition_def(
+  unique int id: @erb_fallback_receive_definition
 );
 
-@solidity_for_statement_body_type = @solidity_assembly_statement | @solidity_block_statement | @solidity_do_while_statement | @solidity_emit_statement | @solidity_expression_statement | @solidity_for_statement | @solidity_if_statement | @solidity_return_statement | @solidity_revert_statement | @solidity_token_break_statement | @solidity_token_continue_statement | @solidity_try_statement | @solidity_variable_declaration_statement | @solidity_while_statement
+@erb_for_statement_body_type = @erb_assembly_statement | @erb_block_statement | @erb_do_while_statement | @erb_emit_statement | @erb_expression_statement | @erb_for_statement | @erb_if_statement | @erb_return_statement | @erb_revert_statement | @erb_token_break_statement | @erb_token_continue_statement | @erb_try_statement | @erb_variable_declaration_statement | @erb_while_statement
 
-@solidity_for_statement_initial_type = @solidity_expression_statement | @solidity_variable_declaration_statement
+@erb_for_statement_initial_type = @erb_expression_statement | @erb_variable_declaration_statement
 
-@solidity_for_statement_update_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_for_statement_update_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_for_statement_update(
-  unique int solidity_for_statement: @solidity_for_statement ref,
-  unique int update: @solidity_for_statement_update_type ref
+erb_for_statement_update(
+  unique int erb_for_statement: @erb_for_statement ref,
+  unique int update: @erb_for_statement_update_type ref
 );
 
-solidity_for_statement_def(
-  unique int id: @solidity_for_statement,
-  int body: @solidity_for_statement_body_type ref,
-  int condition: @solidity_expression_statement ref,
-  int initial: @solidity_for_statement_initial_type ref
+erb_for_statement_def(
+  unique int id: @erb_for_statement,
+  int body: @erb_for_statement_body_type ref,
+  int condition: @erb_expression_statement ref,
+  int initial: @erb_for_statement_initial_type ref
 );
 
-@solidity_function_body_child_type = @solidity_assembly_statement | @solidity_block_statement | @solidity_do_while_statement | @solidity_emit_statement | @solidity_expression_statement | @solidity_for_statement | @solidity_if_statement | @solidity_return_statement | @solidity_revert_statement | @solidity_token_break_statement | @solidity_token_continue_statement | @solidity_try_statement | @solidity_variable_declaration_statement | @solidity_while_statement
+@erb_function_body_child_type = @erb_assembly_statement | @erb_block_statement | @erb_do_while_statement | @erb_emit_statement | @erb_expression_statement | @erb_for_statement | @erb_if_statement | @erb_return_statement | @erb_revert_statement | @erb_token_break_statement | @erb_token_continue_statement | @erb_try_statement | @erb_variable_declaration_statement | @erb_while_statement
 
-#keyset[solidity_function_body, index]
-solidity_function_body_child(
-  int solidity_function_body: @solidity_function_body ref,
+#keyset[erb_function_body, index]
+erb_function_body_child(
+  int erb_function_body: @erb_function_body ref,
   int index: int ref,
-  unique int child: @solidity_function_body_child_type ref
+  unique int child: @erb_function_body_child_type ref
 );
 
-solidity_function_body_def(
-  unique int id: @solidity_function_body
+erb_function_body_def(
+  unique int id: @erb_function_body
 );
 
-solidity_function_definition_body(
-  unique int solidity_function_definition: @solidity_function_definition ref,
-  unique int body: @solidity_function_body ref
+erb_function_definition_body(
+  unique int erb_function_definition: @erb_function_definition ref,
+  unique int body: @erb_function_body ref
 );
 
-solidity_function_definition_return_type(
-  unique int solidity_function_definition: @solidity_function_definition ref,
-  unique int return_type: @solidity_return_type_definition ref
+erb_function_definition_return_type(
+  unique int erb_function_definition: @erb_function_definition ref,
+  unique int return_type: @erb_return_type_definition ref
 );
 
-@solidity_function_definition_child_type = @solidity_modifier_invocation | @solidity_override_specifier | @solidity_parameter | @solidity_token_state_mutability | @solidity_token_virtual | @solidity_token_visibility
+@erb_function_definition_child_type = @erb_modifier_invocation | @erb_override_specifier | @erb_parameter | @erb_token_state_mutability | @erb_token_virtual | @erb_token_visibility
 
-#keyset[solidity_function_definition, index]
-solidity_function_definition_child(
-  int solidity_function_definition: @solidity_function_definition ref,
+#keyset[erb_function_definition, index]
+erb_function_definition_child(
+  int erb_function_definition: @erb_function_definition ref,
   int index: int ref,
-  unique int child: @solidity_function_definition_child_type ref
+  unique int child: @erb_function_definition_child_type ref
 );
 
-solidity_function_definition_def(
-  unique int id: @solidity_function_definition,
-  int name: @solidity_token_identifier ref
+erb_function_definition_def(
+  unique int id: @erb_function_definition,
+  int name: @erb_token_identifier ref
 );
 
-@solidity_if_statement_body_type = @solidity_assembly_statement | @solidity_block_statement | @solidity_do_while_statement | @solidity_emit_statement | @solidity_expression_statement | @solidity_for_statement | @solidity_if_statement | @solidity_return_statement | @solidity_revert_statement | @solidity_token_break_statement | @solidity_token_continue_statement | @solidity_try_statement | @solidity_variable_declaration_statement | @solidity_while_statement
+@erb_if_statement_body_type = @erb_assembly_statement | @erb_block_statement | @erb_do_while_statement | @erb_emit_statement | @erb_expression_statement | @erb_for_statement | @erb_if_statement | @erb_return_statement | @erb_revert_statement | @erb_token_break_statement | @erb_token_continue_statement | @erb_try_statement | @erb_variable_declaration_statement | @erb_while_statement
 
-#keyset[solidity_if_statement, index]
-solidity_if_statement_body(
-  int solidity_if_statement: @solidity_if_statement ref,
+#keyset[erb_if_statement, index]
+erb_if_statement_body(
+  int erb_if_statement: @erb_if_statement ref,
   int index: int ref,
-  unique int body: @solidity_if_statement_body_type ref
+  unique int body: @erb_if_statement_body_type ref
 );
 
-@solidity_if_statement_condition_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_if_statement_condition_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_if_statement_else(
-  unique int solidity_if_statement: @solidity_if_statement ref,
-  unique int else: @solidity_reserved_word ref
+erb_if_statement_else(
+  unique int erb_if_statement: @erb_if_statement ref,
+  unique int else: @erb_reserved_word ref
 );
 
-solidity_if_statement_def(
-  unique int id: @solidity_if_statement,
-  int condition: @solidity_if_statement_condition_type ref
+erb_if_statement_def(
+  unique int id: @erb_if_statement,
+  int condition: @erb_if_statement_condition_type ref
 );
 
-#keyset[solidity_import_directive, index]
-solidity_import_directive_alias(
-  int solidity_import_directive: @solidity_import_directive ref,
+#keyset[erb_import_directive, index]
+erb_import_directive_alias(
+  int erb_import_directive: @erb_import_directive ref,
   int index: int ref,
-  unique int alias: @solidity_token_identifier ref
+  unique int alias: @erb_token_identifier ref
 );
 
-#keyset[solidity_import_directive, index]
-solidity_import_directive_import_name(
-  int solidity_import_directive: @solidity_import_directive ref,
+#keyset[erb_import_directive, index]
+erb_import_directive_import_name(
+  int erb_import_directive: @erb_import_directive ref,
   int index: int ref,
-  unique int import_name: @solidity_token_identifier ref
+  unique int import_name: @erb_token_identifier ref
 );
 
-solidity_import_directive_def(
-  unique int id: @solidity_import_directive,
-  int source: @solidity_token_string ref
+erb_import_directive_def(
+  unique int id: @erb_import_directive,
+  int source: @erb_token_string ref
 );
 
-@solidity_inheritance_specifier_ancestor_arguments_type = @solidity_call_argument | @solidity_reserved_word
+@erb_inheritance_specifier_ancestor_arguments_type = @erb_call_argument | @erb_reserved_word
 
-#keyset[solidity_inheritance_specifier, index]
-solidity_inheritance_specifier_ancestor_arguments(
-  int solidity_inheritance_specifier: @solidity_inheritance_specifier ref,
+#keyset[erb_inheritance_specifier, index]
+erb_inheritance_specifier_ancestor_arguments(
+  int erb_inheritance_specifier: @erb_inheritance_specifier ref,
   int index: int ref,
-  unique int ancestor_arguments: @solidity_inheritance_specifier_ancestor_arguments_type ref
+  unique int ancestor_arguments: @erb_inheritance_specifier_ancestor_arguments_type ref
 );
 
-solidity_inheritance_specifier_def(
-  unique int id: @solidity_inheritance_specifier,
-  int ancestor: @solidity_user_defined_type ref
+erb_inheritance_specifier_def(
+  unique int id: @erb_inheritance_specifier,
+  int ancestor: @erb_user_defined_type ref
 );
 
-@solidity_inline_array_expression_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_inline_array_expression_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_inline_array_expression, index]
-solidity_inline_array_expression_child(
-  int solidity_inline_array_expression: @solidity_inline_array_expression ref,
+#keyset[erb_inline_array_expression, index]
+erb_inline_array_expression_child(
+  int erb_inline_array_expression: @erb_inline_array_expression ref,
   int index: int ref,
-  unique int child: @solidity_inline_array_expression_child_type ref
+  unique int child: @erb_inline_array_expression_child_type ref
 );
 
-solidity_inline_array_expression_def(
-  unique int id: @solidity_inline_array_expression
+erb_inline_array_expression_def(
+  unique int id: @erb_inline_array_expression
 );
 
-#keyset[solidity_interface_declaration, index]
-solidity_interface_declaration_child(
-  int solidity_interface_declaration: @solidity_interface_declaration ref,
+#keyset[erb_interface_declaration, index]
+erb_interface_declaration_child(
+  int erb_interface_declaration: @erb_interface_declaration ref,
   int index: int ref,
-  unique int child: @solidity_inheritance_specifier ref
+  unique int child: @erb_inheritance_specifier ref
 );
 
-solidity_interface_declaration_def(
-  unique int id: @solidity_interface_declaration,
-  int body: @solidity_contract_body ref,
-  int name: @solidity_token_identifier ref
+erb_interface_declaration_def(
+  unique int id: @erb_interface_declaration,
+  int body: @erb_contract_body ref,
+  int name: @erb_token_identifier ref
 );
 
-solidity_library_declaration_def(
-  unique int id: @solidity_library_declaration,
-  int body: @solidity_contract_body ref,
-  int name: @solidity_token_identifier ref
+erb_library_declaration_def(
+  unique int id: @erb_library_declaration,
+  int body: @erb_contract_body ref,
+  int name: @erb_token_identifier ref
 );
 
-@solidity_member_expression_object_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_member_expression_object_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_member_expression_def(
-  unique int id: @solidity_member_expression,
-  int object: @solidity_member_expression_object_type ref,
-  int property: @solidity_token_identifier ref
+erb_member_expression_def(
+  unique int id: @erb_member_expression,
+  int object: @erb_member_expression_object_type ref,
+  int property: @erb_token_identifier ref
 );
 
-solidity_meta_type_expression_def(
-  unique int id: @solidity_meta_type_expression,
-  int child: @solidity_type_name ref
+erb_meta_type_expression_def(
+  unique int id: @erb_meta_type_expression,
+  int child: @erb_type_name ref
 );
 
-solidity_modifier_definition_body(
-  unique int solidity_modifier_definition: @solidity_modifier_definition ref,
-  unique int body: @solidity_function_body ref
+erb_modifier_definition_body(
+  unique int erb_modifier_definition: @erb_modifier_definition ref,
+  unique int body: @erb_function_body ref
 );
 
-@solidity_modifier_definition_child_type = @solidity_override_specifier | @solidity_parameter | @solidity_token_virtual
+@erb_modifier_definition_child_type = @erb_override_specifier | @erb_parameter | @erb_token_virtual
 
-#keyset[solidity_modifier_definition, index]
-solidity_modifier_definition_child(
-  int solidity_modifier_definition: @solidity_modifier_definition ref,
+#keyset[erb_modifier_definition, index]
+erb_modifier_definition_child(
+  int erb_modifier_definition: @erb_modifier_definition ref,
   int index: int ref,
-  unique int child: @solidity_modifier_definition_child_type ref
+  unique int child: @erb_modifier_definition_child_type ref
 );
 
-solidity_modifier_definition_def(
-  unique int id: @solidity_modifier_definition,
-  int name: @solidity_token_identifier ref
+erb_modifier_definition_def(
+  unique int id: @erb_modifier_definition,
+  int name: @erb_token_identifier ref
 );
 
-@solidity_modifier_invocation_child_type = @solidity_call_argument | @solidity_token_identifier
+@erb_modifier_invocation_child_type = @erb_call_argument | @erb_token_identifier
 
-#keyset[solidity_modifier_invocation, index]
-solidity_modifier_invocation_child(
-  int solidity_modifier_invocation: @solidity_modifier_invocation ref,
+#keyset[erb_modifier_invocation, index]
+erb_modifier_invocation_child(
+  int erb_modifier_invocation: @erb_modifier_invocation ref,
   int index: int ref,
-  unique int child: @solidity_modifier_invocation_child_type ref
+  unique int child: @erb_modifier_invocation_child_type ref
 );
 
-solidity_modifier_invocation_def(
-  unique int id: @solidity_modifier_invocation
+erb_modifier_invocation_def(
+  unique int id: @erb_modifier_invocation
 );
 
-#keyset[solidity_new_expression, index]
-solidity_new_expression_child(
-  int solidity_new_expression: @solidity_new_expression ref,
+#keyset[erb_new_expression, index]
+erb_new_expression_child(
+  int erb_new_expression: @erb_new_expression ref,
   int index: int ref,
-  unique int child: @solidity_call_argument ref
+  unique int child: @erb_call_argument ref
 );
 
-solidity_new_expression_def(
-  unique int id: @solidity_new_expression,
-  int name: @solidity_type_name ref
+erb_new_expression_def(
+  unique int id: @erb_new_expression,
+  int name: @erb_type_name ref
 );
 
-solidity_number_literal_child(
-  unique int solidity_number_literal: @solidity_number_literal ref,
-  unique int child: @solidity_token_number_unit ref
+erb_number_literal_child(
+  unique int erb_number_literal: @erb_number_literal ref,
+  unique int child: @erb_token_number_unit ref
 );
 
-solidity_number_literal_def(
-  unique int id: @solidity_number_literal
+erb_number_literal_def(
+  unique int id: @erb_number_literal
 );
 
-#keyset[solidity_override_specifier, index]
-solidity_override_specifier_child(
-  int solidity_override_specifier: @solidity_override_specifier ref,
+#keyset[erb_override_specifier, index]
+erb_override_specifier_child(
+  int erb_override_specifier: @erb_override_specifier ref,
   int index: int ref,
-  unique int child: @solidity_user_defined_type ref
+  unique int child: @erb_user_defined_type ref
 );
 
-solidity_override_specifier_def(
-  unique int id: @solidity_override_specifier
+erb_override_specifier_def(
+  unique int id: @erb_override_specifier
 );
 
-@solidity_parameter_location_type = @solidity_reserved_word
+@erb_parameter_location_type = @erb_reserved_word
 
-solidity_parameter_location(
-  unique int solidity_parameter: @solidity_parameter ref,
-  unique int location: @solidity_parameter_location_type ref
+erb_parameter_location(
+  unique int erb_parameter: @erb_parameter ref,
+  unique int location: @erb_parameter_location_type ref
 );
 
-solidity_parameter_name(
-  unique int solidity_parameter: @solidity_parameter ref,
-  unique int name: @solidity_token_identifier ref
+erb_parameter_name(
+  unique int erb_parameter: @erb_parameter ref,
+  unique int name: @erb_token_identifier ref
 );
 
-solidity_parameter_def(
-  unique int id: @solidity_parameter,
-  int type__: @solidity_type_name ref
+erb_parameter_def(
+  unique int id: @erb_parameter,
+  int type__: @erb_type_name ref
 );
 
-@solidity_parenthesized_expression_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_parenthesized_expression_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_parenthesized_expression_def(
-  unique int id: @solidity_parenthesized_expression,
-  int child: @solidity_parenthesized_expression_child_type ref
+erb_parenthesized_expression_def(
+  unique int id: @erb_parenthesized_expression,
+  int child: @erb_parenthesized_expression_child_type ref
 );
 
-#keyset[solidity_payable_conversion_expression, index]
-solidity_payable_conversion_expression_child(
-  int solidity_payable_conversion_expression: @solidity_payable_conversion_expression ref,
+#keyset[erb_payable_conversion_expression, index]
+erb_payable_conversion_expression_child(
+  int erb_payable_conversion_expression: @erb_payable_conversion_expression ref,
   int index: int ref,
-  unique int child: @solidity_call_argument ref
+  unique int child: @erb_call_argument ref
 );
 
-solidity_payable_conversion_expression_def(
-  unique int id: @solidity_payable_conversion_expression
+erb_payable_conversion_expression_def(
+  unique int id: @erb_payable_conversion_expression
 );
 
-@solidity_pragma_directive_child_type = @solidity_any_pragma_token | @solidity_solidity_pragma_token
+@erb_pragma_directive_child_type = @erb_any_pragma_token | @erb_solidity_pragma_token
 
-solidity_pragma_directive_def(
-  unique int id: @solidity_pragma_directive,
-  int child: @solidity_pragma_directive_child_type ref
+erb_pragma_directive_def(
+  unique int id: @erb_pragma_directive,
+  int child: @erb_pragma_directive_child_type ref
 );
 
-@solidity_return_parameter_location_type = @solidity_reserved_word
+@erb_return_parameter_location_type = @erb_reserved_word
 
-solidity_return_parameter_location(
-  unique int solidity_return_parameter: @solidity_return_parameter ref,
-  unique int location: @solidity_return_parameter_location_type ref
+erb_return_parameter_location(
+  unique int erb_return_parameter: @erb_return_parameter ref,
+  unique int location: @erb_return_parameter_location_type ref
 );
 
-solidity_return_parameter_def(
-  unique int id: @solidity_return_parameter,
-  int type__: @solidity_type_name ref
+erb_return_parameter_def(
+  unique int id: @erb_return_parameter,
+  int type__: @erb_type_name ref
 );
 
-@solidity_return_statement_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_return_statement_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_return_statement_child(
-  unique int solidity_return_statement: @solidity_return_statement ref,
-  unique int child: @solidity_return_statement_child_type ref
+erb_return_statement_child(
+  unique int erb_return_statement: @erb_return_statement ref,
+  unique int child: @erb_return_statement_child_type ref
 );
 
-solidity_return_statement_def(
-  unique int id: @solidity_return_statement
+erb_return_statement_def(
+  unique int id: @erb_return_statement
 );
 
-#keyset[solidity_return_type_definition, index]
-solidity_return_type_definition_child(
-  int solidity_return_type_definition: @solidity_return_type_definition ref,
+#keyset[erb_return_type_definition, index]
+erb_return_type_definition_child(
+  int erb_return_type_definition: @erb_return_type_definition ref,
   int index: int ref,
-  unique int child: @solidity_parameter ref
+  unique int child: @erb_parameter ref
 );
 
-solidity_return_type_definition_def(
-  unique int id: @solidity_return_type_definition
+erb_return_type_definition_def(
+  unique int id: @erb_return_type_definition
 );
 
-#keyset[solidity_revert_arguments, index]
-solidity_revert_arguments_child(
-  int solidity_revert_arguments: @solidity_revert_arguments ref,
+#keyset[erb_revert_arguments, index]
+erb_revert_arguments_child(
+  int erb_revert_arguments: @erb_revert_arguments ref,
   int index: int ref,
-  unique int child: @solidity_call_argument ref
+  unique int child: @erb_call_argument ref
 );
 
-solidity_revert_arguments_def(
-  unique int id: @solidity_revert_arguments
+erb_revert_arguments_def(
+  unique int id: @erb_revert_arguments
 );
 
-@solidity_revert_statement_error_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_revert_statement_error_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_revert_statement_error(
-  unique int solidity_revert_statement: @solidity_revert_statement ref,
-  unique int error: @solidity_revert_statement_error_type ref
+erb_revert_statement_error(
+  unique int erb_revert_statement: @erb_revert_statement ref,
+  unique int error: @erb_revert_statement_error_type ref
 );
 
-solidity_revert_statement_child(
-  unique int solidity_revert_statement: @solidity_revert_statement ref,
-  unique int child: @solidity_revert_arguments ref
+erb_revert_statement_child(
+  unique int erb_revert_statement: @erb_revert_statement ref,
+  unique int child: @erb_revert_arguments ref
 );
 
-solidity_revert_statement_def(
-  unique int id: @solidity_revert_statement
+erb_revert_statement_def(
+  unique int id: @erb_revert_statement
 );
 
-@solidity_slice_access_base_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_slice_access_base_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-@solidity_slice_access_from_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_slice_access_from_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_slice_access_from(
-  unique int solidity_slice_access: @solidity_slice_access ref,
-  unique int from: @solidity_slice_access_from_type ref
+erb_slice_access_from(
+  unique int erb_slice_access: @erb_slice_access ref,
+  unique int from: @erb_slice_access_from_type ref
 );
 
-@solidity_slice_access_to_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_slice_access_to_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_slice_access_to(
-  unique int solidity_slice_access: @solidity_slice_access ref,
-  unique int to: @solidity_slice_access_to_type ref
+erb_slice_access_to(
+  unique int erb_slice_access: @erb_slice_access ref,
+  unique int to: @erb_slice_access_to_type ref
 );
 
-solidity_slice_access_def(
-  unique int id: @solidity_slice_access,
-  int base: @solidity_slice_access_base_type ref
+erb_slice_access_def(
+  unique int id: @erb_slice_access,
+  int base: @erb_slice_access_base_type ref
 );
 
-@solidity_solidity_pragma_token_version_constraint_type = @solidity_token_solidity_version | @solidity_token_solidity_version_comparison_operator
+@erb_solidity_pragma_token_version_constraint_type = @erb_token_solidity_version | @erb_token_solidity_version_comparison_operator
 
-#keyset[solidity_solidity_pragma_token, index]
-solidity_solidity_pragma_token_version_constraint(
-  int solidity_solidity_pragma_token: @solidity_solidity_pragma_token ref,
+#keyset[erb_solidity_pragma_token, index]
+erb_solidity_pragma_token_version_constraint(
+  int erb_solidity_pragma_token: @erb_solidity_pragma_token ref,
   int index: int ref,
-  unique int version_constraint: @solidity_solidity_pragma_token_version_constraint_type ref
+  unique int version_constraint: @erb_solidity_pragma_token_version_constraint_type ref
 );
 
-solidity_solidity_pragma_token_def(
-  unique int id: @solidity_solidity_pragma_token
+erb_solidity_pragma_token_def(
+  unique int id: @erb_solidity_pragma_token
 );
 
-@solidity_source_file_child_type = @solidity_constant_variable_declaration | @solidity_contract_declaration | @solidity_enum_declaration | @solidity_error_declaration | @solidity_function_definition | @solidity_import_directive | @solidity_interface_declaration | @solidity_library_declaration | @solidity_pragma_directive | @solidity_struct_declaration | @solidity_user_defined_type_definition
+@erb_source_file_child_type = @erb_constant_variable_declaration | @erb_contract_declaration | @erb_enum_declaration | @erb_error_declaration | @erb_function_definition | @erb_import_directive | @erb_interface_declaration | @erb_library_declaration | @erb_pragma_directive | @erb_struct_declaration | @erb_user_defined_type_definition
 
-#keyset[solidity_source_file, index]
-solidity_source_file_child(
-  int solidity_source_file: @solidity_source_file ref,
+#keyset[erb_source_file, index]
+erb_source_file_child(
+  int erb_source_file: @erb_source_file ref,
   int index: int ref,
-  unique int child: @solidity_source_file_child_type ref
+  unique int child: @erb_source_file_child_type ref
 );
 
-solidity_source_file_def(
-  unique int id: @solidity_source_file
+erb_source_file_def(
+  unique int id: @erb_source_file
 );
 
-@solidity_state_variable_declaration_value_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_state_variable_declaration_value_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_state_variable_declaration_value(
-  unique int solidity_state_variable_declaration: @solidity_state_variable_declaration ref,
-  unique int value: @solidity_state_variable_declaration_value_type ref
+erb_state_variable_declaration_value(
+  unique int erb_state_variable_declaration: @erb_state_variable_declaration ref,
+  unique int value: @erb_state_variable_declaration_value_type ref
 );
 
-#keyset[solidity_state_variable_declaration, index]
-solidity_state_variable_declaration_visibility(
-  int solidity_state_variable_declaration: @solidity_state_variable_declaration ref,
+#keyset[erb_state_variable_declaration, index]
+erb_state_variable_declaration_visibility(
+  int erb_state_variable_declaration: @erb_state_variable_declaration ref,
   int index: int ref,
-  unique int visibility: @solidity_token_visibility ref
+  unique int visibility: @erb_token_visibility ref
 );
 
-@solidity_state_variable_declaration_child_type = @solidity_override_specifier | @solidity_token_immutable
+@erb_state_variable_declaration_child_type = @erb_override_specifier | @erb_token_immutable
 
-#keyset[solidity_state_variable_declaration, index]
-solidity_state_variable_declaration_child(
-  int solidity_state_variable_declaration: @solidity_state_variable_declaration ref,
+#keyset[erb_state_variable_declaration, index]
+erb_state_variable_declaration_child(
+  int erb_state_variable_declaration: @erb_state_variable_declaration ref,
   int index: int ref,
-  unique int child: @solidity_state_variable_declaration_child_type ref
+  unique int child: @erb_state_variable_declaration_child_type ref
 );
 
-solidity_state_variable_declaration_def(
-  unique int id: @solidity_state_variable_declaration,
-  int name: @solidity_token_identifier ref,
-  int type__: @solidity_type_name ref
+erb_state_variable_declaration_def(
+  unique int id: @erb_state_variable_declaration,
+  int name: @erb_token_identifier ref,
+  int type__: @erb_type_name ref
 );
 
-#keyset[solidity_string_literal, index]
-solidity_string_literal_child(
-  int solidity_string_literal: @solidity_string_literal ref,
+#keyset[erb_string_literal, index]
+erb_string_literal_child(
+  int erb_string_literal: @erb_string_literal ref,
   int index: int ref,
-  unique int child: @solidity_token_string ref
+  unique int child: @erb_token_string ref
 );
 
-solidity_string_literal_def(
-  unique int id: @solidity_string_literal
+erb_string_literal_def(
+  unique int id: @erb_string_literal
 );
 
-#keyset[solidity_struct_declaration, index]
-solidity_struct_declaration_child(
-  int solidity_struct_declaration: @solidity_struct_declaration ref,
+#keyset[erb_struct_declaration, index]
+erb_struct_declaration_child(
+  int erb_struct_declaration: @erb_struct_declaration ref,
   int index: int ref,
-  unique int child: @solidity_struct_member ref
+  unique int child: @erb_struct_member ref
 );
 
-solidity_struct_declaration_def(
-  unique int id: @solidity_struct_declaration,
-  int name: @solidity_token_identifier ref
+erb_struct_declaration_def(
+  unique int id: @erb_struct_declaration,
+  int name: @erb_token_identifier ref
 );
 
-@solidity_struct_expression_type_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_struct_expression_type_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_struct_expression, index]
-solidity_struct_expression_child(
-  int solidity_struct_expression: @solidity_struct_expression ref,
+#keyset[erb_struct_expression, index]
+erb_struct_expression_child(
+  int erb_struct_expression: @erb_struct_expression ref,
   int index: int ref,
-  unique int child: @solidity_struct_field_assignment ref
+  unique int child: @erb_struct_field_assignment ref
 );
 
-solidity_struct_expression_def(
-  unique int id: @solidity_struct_expression,
-  int type__: @solidity_struct_expression_type_type ref
+erb_struct_expression_def(
+  unique int id: @erb_struct_expression,
+  int type__: @erb_struct_expression_type_type ref
 );
 
-@solidity_struct_field_assignment_value_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_struct_field_assignment_value_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_struct_field_assignment_def(
-  unique int id: @solidity_struct_field_assignment,
-  int name: @solidity_token_identifier ref,
-  int value: @solidity_struct_field_assignment_value_type ref
+erb_struct_field_assignment_def(
+  unique int id: @erb_struct_field_assignment,
+  int name: @erb_token_identifier ref,
+  int value: @erb_struct_field_assignment_value_type ref
 );
 
-solidity_struct_member_def(
-  unique int id: @solidity_struct_member,
-  int name: @solidity_token_identifier ref,
-  int type__: @solidity_type_name ref
+erb_struct_member_def(
+  unique int id: @erb_struct_member,
+  int name: @erb_token_identifier ref,
+  int type__: @erb_type_name ref
 );
 
-@solidity_ternary_expression_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_ternary_expression_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_ternary_expression, index]
-solidity_ternary_expression_child(
-  int solidity_ternary_expression: @solidity_ternary_expression ref,
+#keyset[erb_ternary_expression, index]
+erb_ternary_expression_child(
+  int erb_ternary_expression: @erb_ternary_expression ref,
   int index: int ref,
-  unique int child: @solidity_ternary_expression_child_type ref
+  unique int child: @erb_ternary_expression_child_type ref
 );
 
-solidity_ternary_expression_def(
-  unique int id: @solidity_ternary_expression
+erb_ternary_expression_def(
+  unique int id: @erb_ternary_expression
 );
 
-@solidity_try_statement_attempt_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_try_statement_attempt_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-@solidity_try_statement_child_type = @solidity_catch_clause | @solidity_parameter
+@erb_try_statement_child_type = @erb_catch_clause | @erb_parameter
 
-#keyset[solidity_try_statement, index]
-solidity_try_statement_child(
-  int solidity_try_statement: @solidity_try_statement ref,
+#keyset[erb_try_statement, index]
+erb_try_statement_child(
+  int erb_try_statement: @erb_try_statement ref,
   int index: int ref,
-  unique int child: @solidity_try_statement_child_type ref
+  unique int child: @erb_try_statement_child_type ref
 );
 
-solidity_try_statement_def(
-  unique int id: @solidity_try_statement,
-  int attempt: @solidity_try_statement_attempt_type ref,
-  int body: @solidity_block_statement ref
+erb_try_statement_def(
+  unique int id: @erb_try_statement,
+  int attempt: @erb_try_statement_attempt_type ref,
+  int body: @erb_block_statement ref
 );
 
-@solidity_tuple_expression_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_tuple_expression_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_tuple_expression, index]
-solidity_tuple_expression_child(
-  int solidity_tuple_expression: @solidity_tuple_expression ref,
+#keyset[erb_tuple_expression, index]
+erb_tuple_expression_child(
+  int erb_tuple_expression: @erb_tuple_expression ref,
   int index: int ref,
-  unique int child: @solidity_tuple_expression_child_type ref
+  unique int child: @erb_tuple_expression_child_type ref
 );
 
-solidity_tuple_expression_def(
-  unique int id: @solidity_tuple_expression
+erb_tuple_expression_def(
+  unique int id: @erb_tuple_expression
 );
 
-#keyset[solidity_type_alias, index]
-solidity_type_alias_child(
-  int solidity_type_alias: @solidity_type_alias ref,
+#keyset[erb_type_alias, index]
+erb_type_alias_child(
+  int erb_type_alias: @erb_type_alias ref,
   int index: int ref,
-  unique int child: @solidity_token_identifier ref
+  unique int child: @erb_token_identifier ref
 );
 
-solidity_type_alias_def(
-  unique int id: @solidity_type_alias
+erb_type_alias_def(
+  unique int id: @erb_type_alias
 );
 
-@solidity_type_cast_expression_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_type_cast_expression_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_type_cast_expression, index]
-solidity_type_cast_expression_child(
-  int solidity_type_cast_expression: @solidity_type_cast_expression ref,
+#keyset[erb_type_cast_expression, index]
+erb_type_cast_expression_child(
+  int erb_type_cast_expression: @erb_type_cast_expression ref,
   int index: int ref,
-  unique int child: @solidity_type_cast_expression_child_type ref
+  unique int child: @erb_type_cast_expression_child_type ref
 );
 
-solidity_type_cast_expression_def(
-  unique int id: @solidity_type_cast_expression
+erb_type_cast_expression_def(
+  unique int id: @erb_type_cast_expression
 );
 
-@solidity_type_name_key_type_type = @solidity_token_primitive_type | @solidity_user_defined_type
+@erb_type_name_key_type_type = @erb_token_primitive_type | @erb_user_defined_type
 
-solidity_type_name_key_type(
-  unique int solidity_type_name: @solidity_type_name ref,
-  unique int key_type: @solidity_type_name_key_type_type ref
+erb_type_name_key_type(
+  unique int erb_type_name: @erb_type_name ref,
+  unique int key_type: @erb_type_name_key_type_type ref
 );
 
-@solidity_type_name_parameters_type = @solidity_parameter | @solidity_reserved_word
+@erb_type_name_parameters_type = @erb_parameter | @erb_reserved_word
 
-#keyset[solidity_type_name, index]
-solidity_type_name_parameters(
-  int solidity_type_name: @solidity_type_name ref,
+#keyset[erb_type_name, index]
+erb_type_name_parameters(
+  int erb_type_name: @erb_type_name ref,
   int index: int ref,
-  unique int parameters: @solidity_type_name_parameters_type ref
+  unique int parameters: @erb_type_name_parameters_type ref
 );
 
-solidity_type_name_value_type(
-  unique int solidity_type_name: @solidity_type_name ref,
-  unique int value_type: @solidity_type_name ref
+erb_type_name_value_type(
+  unique int erb_type_name: @erb_type_name ref,
+  unique int value_type: @erb_type_name ref
 );
 
-@solidity_type_name_child_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_return_parameter | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_state_mutability | @solidity_token_unicode_string_literal | @solidity_token_visibility | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_type_name | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_type_name_child_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_return_parameter | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_state_mutability | @erb_token_unicode_string_literal | @erb_token_visibility | @erb_tuple_expression | @erb_type_cast_expression | @erb_type_name | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-#keyset[solidity_type_name, index]
-solidity_type_name_child(
-  int solidity_type_name: @solidity_type_name ref,
+#keyset[erb_type_name, index]
+erb_type_name_child(
+  int erb_type_name: @erb_type_name ref,
   int index: int ref,
-  unique int child: @solidity_type_name_child_type ref
+  unique int child: @erb_type_name_child_type ref
 );
 
-solidity_type_name_def(
-  unique int id: @solidity_type_name
+erb_type_name_def(
+  unique int id: @erb_type_name
 );
 
-@solidity_unary_expression_argument_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_unary_expression_argument_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-case @solidity_unary_expression.operator of
-  0 = @solidity_unary_expression_bang
-| 1 = @solidity_unary_expression_plus
-| 2 = @solidity_unary_expression_minus
-| 3 = @solidity_unary_expression_delete
-| 4 = @solidity_unary_expression_tilde
+case @erb_unary_expression.operator of
+  0 = @erb_unary_expression_bang
+| 1 = @erb_unary_expression_plus
+| 2 = @erb_unary_expression_minus
+| 3 = @erb_unary_expression_delete
+| 4 = @erb_unary_expression_tilde
 ;
 
 
-solidity_unary_expression_def(
-  unique int id: @solidity_unary_expression,
-  int argument: @solidity_unary_expression_argument_type ref,
+erb_unary_expression_def(
+  unique int id: @erb_unary_expression,
+  int argument: @erb_unary_expression_argument_type ref,
   int operator: int ref
 );
 
-@solidity_update_expression_argument_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_update_expression_argument_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-case @solidity_update_expression.operator of
-  0 = @solidity_update_expression_plusplus
-| 1 = @solidity_update_expression_minusminus
+case @erb_update_expression.operator of
+  0 = @erb_update_expression_plusplus
+| 1 = @erb_update_expression_minusminus
 ;
 
 
-solidity_update_expression_def(
-  unique int id: @solidity_update_expression,
-  int argument: @solidity_update_expression_argument_type ref,
+erb_update_expression_def(
+  unique int id: @erb_update_expression,
+  int argument: @erb_update_expression_argument_type ref,
   int operator: int ref
 );
 
-#keyset[solidity_user_defined_type, index]
-solidity_user_defined_type_child(
-  int solidity_user_defined_type: @solidity_user_defined_type ref,
+#keyset[erb_user_defined_type, index]
+erb_user_defined_type_child(
+  int erb_user_defined_type: @erb_user_defined_type ref,
   int index: int ref,
-  unique int child: @solidity_token_identifier ref
+  unique int child: @erb_token_identifier ref
 );
 
-solidity_user_defined_type_def(
-  unique int id: @solidity_user_defined_type
+erb_user_defined_type_def(
+  unique int id: @erb_user_defined_type
 );
 
-solidity_user_defined_type_definition_def(
-  unique int id: @solidity_user_defined_type_definition,
-  int name: @solidity_token_identifier ref,
-  int child: @solidity_token_primitive_type ref
+erb_user_defined_type_definition_def(
+  unique int id: @erb_user_defined_type_definition,
+  int name: @erb_token_identifier ref,
+  int child: @erb_token_primitive_type ref
 );
 
-@solidity_using_directive_source_type = @solidity_token_any_source_type | @solidity_type_name
+@erb_using_directive_source_type = @erb_token_any_source_type | @erb_type_name
 
-solidity_using_directive_def(
-  unique int id: @solidity_using_directive,
-  int source: @solidity_using_directive_source_type ref,
-  int child: @solidity_type_alias ref
+erb_using_directive_def(
+  unique int id: @erb_using_directive,
+  int source: @erb_using_directive_source_type ref,
+  int child: @erb_type_alias ref
 );
 
-@solidity_variable_declaration_location_type = @solidity_reserved_word
+@erb_variable_declaration_location_type = @erb_reserved_word
 
-solidity_variable_declaration_location(
-  unique int solidity_variable_declaration: @solidity_variable_declaration ref,
-  unique int location: @solidity_variable_declaration_location_type ref
+erb_variable_declaration_location(
+  unique int erb_variable_declaration: @erb_variable_declaration ref,
+  unique int location: @erb_variable_declaration_location_type ref
 );
 
-solidity_variable_declaration_def(
-  unique int id: @solidity_variable_declaration,
-  int name: @solidity_token_identifier ref,
-  int type__: @solidity_type_name ref
+erb_variable_declaration_def(
+  unique int id: @erb_variable_declaration,
+  int name: @erb_token_identifier ref,
+  int type__: @erb_type_name ref
 );
 
-@solidity_variable_declaration_statement_value_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_variable_declaration_statement_value_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_variable_declaration_statement_value(
-  unique int solidity_variable_declaration_statement: @solidity_variable_declaration_statement ref,
-  unique int value: @solidity_variable_declaration_statement_value_type ref
+erb_variable_declaration_statement_value(
+  unique int erb_variable_declaration_statement: @erb_variable_declaration_statement ref,
+  unique int value: @erb_variable_declaration_statement_value_type ref
 );
 
-@solidity_variable_declaration_statement_child_type = @solidity_variable_declaration | @solidity_variable_declaration_tuple
+@erb_variable_declaration_statement_child_type = @erb_variable_declaration | @erb_variable_declaration_tuple
 
-solidity_variable_declaration_statement_def(
-  unique int id: @solidity_variable_declaration_statement,
-  int child: @solidity_variable_declaration_statement_child_type ref
+erb_variable_declaration_statement_def(
+  unique int id: @erb_variable_declaration_statement,
+  int child: @erb_variable_declaration_statement_child_type ref
 );
 
-@solidity_variable_declaration_tuple_child_type = @solidity_token_identifier | @solidity_variable_declaration
+@erb_variable_declaration_tuple_child_type = @erb_token_identifier | @erb_variable_declaration
 
-#keyset[solidity_variable_declaration_tuple, index]
-solidity_variable_declaration_tuple_child(
-  int solidity_variable_declaration_tuple: @solidity_variable_declaration_tuple ref,
+#keyset[erb_variable_declaration_tuple, index]
+erb_variable_declaration_tuple_child(
+  int erb_variable_declaration_tuple: @erb_variable_declaration_tuple ref,
   int index: int ref,
-  unique int child: @solidity_variable_declaration_tuple_child_type ref
+  unique int child: @erb_variable_declaration_tuple_child_type ref
 );
 
-solidity_variable_declaration_tuple_def(
-  unique int id: @solidity_variable_declaration_tuple
+erb_variable_declaration_tuple_def(
+  unique int id: @erb_variable_declaration_tuple
 );
 
-@solidity_while_statement_body_type = @solidity_assembly_statement | @solidity_block_statement | @solidity_do_while_statement | @solidity_emit_statement | @solidity_expression_statement | @solidity_for_statement | @solidity_if_statement | @solidity_return_statement | @solidity_revert_statement | @solidity_token_break_statement | @solidity_token_continue_statement | @solidity_try_statement | @solidity_variable_declaration_statement | @solidity_while_statement
+@erb_while_statement_body_type = @erb_assembly_statement | @erb_block_statement | @erb_do_while_statement | @erb_emit_statement | @erb_expression_statement | @erb_for_statement | @erb_if_statement | @erb_return_statement | @erb_revert_statement | @erb_token_break_statement | @erb_token_continue_statement | @erb_try_statement | @erb_variable_declaration_statement | @erb_while_statement
 
-@solidity_while_statement_condition_type = @solidity_array_access | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_boolean_literal | @solidity_call_expression | @solidity_inline_array_expression | @solidity_member_expression | @solidity_meta_type_expression | @solidity_new_expression | @solidity_number_literal | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_slice_access | @solidity_string_literal | @solidity_struct_expression | @solidity_ternary_expression | @solidity_token_hex_string_literal | @solidity_token_identifier | @solidity_token_primitive_type | @solidity_token_unicode_string_literal | @solidity_tuple_expression | @solidity_type_cast_expression | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type
+@erb_while_statement_condition_type = @erb_array_access | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_boolean_literal | @erb_call_expression | @erb_inline_array_expression | @erb_member_expression | @erb_meta_type_expression | @erb_new_expression | @erb_number_literal | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_slice_access | @erb_string_literal | @erb_struct_expression | @erb_ternary_expression | @erb_token_hex_string_literal | @erb_token_identifier | @erb_token_primitive_type | @erb_token_unicode_string_literal | @erb_tuple_expression | @erb_type_cast_expression | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type
 
-solidity_while_statement_def(
-  unique int id: @solidity_while_statement,
-  int body: @solidity_while_statement_body_type ref,
-  int condition: @solidity_while_statement_condition_type ref
+erb_while_statement_def(
+  unique int id: @erb_while_statement,
+  int body: @erb_while_statement_body_type ref,
+  int condition: @erb_while_statement_condition_type ref
 );
 
-@solidity_yul_assignment_child_type = @solidity_token_yul_boolean | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_yul_function_call | @solidity_yul_path | @solidity_yul_string_literal
+@erb_yul_assignment_child_type = @erb_token_yul_boolean | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_yul_function_call | @erb_yul_path | @erb_yul_string_literal
 
-#keyset[solidity_yul_assignment, index]
-solidity_yul_assignment_child(
-  int solidity_yul_assignment: @solidity_yul_assignment ref,
+#keyset[erb_yul_assignment, index]
+erb_yul_assignment_child(
+  int erb_yul_assignment: @erb_yul_assignment ref,
   int index: int ref,
-  unique int child: @solidity_yul_assignment_child_type ref
+  unique int child: @erb_yul_assignment_child_type ref
 );
 
-solidity_yul_assignment_def(
-  unique int id: @solidity_yul_assignment
+erb_yul_assignment_def(
+  unique int id: @erb_yul_assignment
 );
 
-@solidity_yul_block_child_type = @solidity_token_yul_boolean | @solidity_token_yul_break | @solidity_token_yul_continue | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_token_yul_leave | @solidity_yul_assignment | @solidity_yul_block | @solidity_yul_for_statement | @solidity_yul_function_call | @solidity_yul_function_definition | @solidity_yul_if_statement | @solidity_yul_label | @solidity_yul_string_literal | @solidity_yul_switch_statement | @solidity_yul_variable_declaration
+@erb_yul_block_child_type = @erb_token_yul_boolean | @erb_token_yul_break | @erb_token_yul_continue | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_token_yul_leave | @erb_yul_assignment | @erb_yul_block | @erb_yul_for_statement | @erb_yul_function_call | @erb_yul_function_definition | @erb_yul_if_statement | @erb_yul_label | @erb_yul_string_literal | @erb_yul_switch_statement | @erb_yul_variable_declaration
 
-#keyset[solidity_yul_block, index]
-solidity_yul_block_child(
-  int solidity_yul_block: @solidity_yul_block ref,
+#keyset[erb_yul_block, index]
+erb_yul_block_child(
+  int erb_yul_block: @erb_yul_block ref,
   int index: int ref,
-  unique int child: @solidity_yul_block_child_type ref
+  unique int child: @erb_yul_block_child_type ref
 );
 
-solidity_yul_block_def(
-  unique int id: @solidity_yul_block
+erb_yul_block_def(
+  unique int id: @erb_yul_block
 );
 
-@solidity_yul_for_statement_child_type = @solidity_token_yul_boolean | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_yul_block | @solidity_yul_function_call | @solidity_yul_path | @solidity_yul_string_literal
+@erb_yul_for_statement_child_type = @erb_token_yul_boolean | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_yul_block | @erb_yul_function_call | @erb_yul_path | @erb_yul_string_literal
 
-#keyset[solidity_yul_for_statement, index]
-solidity_yul_for_statement_child(
-  int solidity_yul_for_statement: @solidity_yul_for_statement ref,
+#keyset[erb_yul_for_statement, index]
+erb_yul_for_statement_child(
+  int erb_yul_for_statement: @erb_yul_for_statement ref,
   int index: int ref,
-  unique int child: @solidity_yul_for_statement_child_type ref
+  unique int child: @erb_yul_for_statement_child_type ref
 );
 
-solidity_yul_for_statement_def(
-  unique int id: @solidity_yul_for_statement
+erb_yul_for_statement_def(
+  unique int id: @erb_yul_for_statement
 );
 
-@solidity_yul_function_call_function_type = @solidity_token_yul_evm_builtin | @solidity_yul_identifier
+@erb_yul_function_call_function_type = @erb_token_yul_evm_builtin | @erb_yul_identifier
 
-@solidity_yul_function_call_child_type = @solidity_token_yul_boolean | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_yul_function_call | @solidity_yul_path | @solidity_yul_string_literal
+@erb_yul_function_call_child_type = @erb_token_yul_boolean | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_yul_function_call | @erb_yul_path | @erb_yul_string_literal
 
-#keyset[solidity_yul_function_call, index]
-solidity_yul_function_call_child(
-  int solidity_yul_function_call: @solidity_yul_function_call ref,
+#keyset[erb_yul_function_call, index]
+erb_yul_function_call_child(
+  int erb_yul_function_call: @erb_yul_function_call ref,
   int index: int ref,
-  unique int child: @solidity_yul_function_call_child_type ref
+  unique int child: @erb_yul_function_call_child_type ref
 );
 
-solidity_yul_function_call_def(
-  unique int id: @solidity_yul_function_call,
-  int function: @solidity_yul_function_call_function_type ref
+erb_yul_function_call_def(
+  unique int id: @erb_yul_function_call,
+  int function: @erb_yul_function_call_function_type ref
 );
 
-@solidity_yul_function_definition_child_type = @solidity_yul_block | @solidity_yul_identifier
+@erb_yul_function_definition_child_type = @erb_yul_block | @erb_yul_identifier
 
-#keyset[solidity_yul_function_definition, index]
-solidity_yul_function_definition_child(
-  int solidity_yul_function_definition: @solidity_yul_function_definition ref,
+#keyset[erb_yul_function_definition, index]
+erb_yul_function_definition_child(
+  int erb_yul_function_definition: @erb_yul_function_definition ref,
   int index: int ref,
-  unique int child: @solidity_yul_function_definition_child_type ref
+  unique int child: @erb_yul_function_definition_child_type ref
 );
 
-solidity_yul_function_definition_def(
-  unique int id: @solidity_yul_function_definition
+erb_yul_function_definition_def(
+  unique int id: @erb_yul_function_definition
 );
 
-solidity_yul_identifier_def(
-  unique int id: @solidity_yul_identifier,
-  int child: @solidity_token_identifier ref
+erb_yul_identifier_def(
+  unique int id: @erb_yul_identifier,
+  int child: @erb_token_identifier ref
 );
 
-@solidity_yul_if_statement_child_type = @solidity_token_yul_boolean | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_yul_block | @solidity_yul_function_call | @solidity_yul_path | @solidity_yul_string_literal
+@erb_yul_if_statement_child_type = @erb_token_yul_boolean | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_yul_block | @erb_yul_function_call | @erb_yul_path | @erb_yul_string_literal
 
-#keyset[solidity_yul_if_statement, index]
-solidity_yul_if_statement_child(
-  int solidity_yul_if_statement: @solidity_yul_if_statement ref,
+#keyset[erb_yul_if_statement, index]
+erb_yul_if_statement_child(
+  int erb_yul_if_statement: @erb_yul_if_statement ref,
   int index: int ref,
-  unique int child: @solidity_yul_if_statement_child_type ref
+  unique int child: @erb_yul_if_statement_child_type ref
 );
 
-solidity_yul_if_statement_def(
-  unique int id: @solidity_yul_if_statement
+erb_yul_if_statement_def(
+  unique int id: @erb_yul_if_statement
 );
 
-solidity_yul_label_def(
-  unique int id: @solidity_yul_label,
-  int child: @solidity_token_identifier ref
+erb_yul_label_def(
+  unique int id: @erb_yul_label,
+  int child: @erb_token_identifier ref
 );
 
-#keyset[solidity_yul_path, index]
-solidity_yul_path_child(
-  int solidity_yul_path: @solidity_yul_path ref,
+#keyset[erb_yul_path, index]
+erb_yul_path_child(
+  int erb_yul_path: @erb_yul_path ref,
   int index: int ref,
-  unique int child: @solidity_yul_identifier ref
+  unique int child: @erb_yul_identifier ref
 );
 
-solidity_yul_path_def(
-  unique int id: @solidity_yul_path
+erb_yul_path_def(
+  unique int id: @erb_yul_path
 );
 
-solidity_yul_string_literal_def(
-  unique int id: @solidity_yul_string_literal,
-  int child: @solidity_token_string ref
+erb_yul_string_literal_def(
+  unique int id: @erb_yul_string_literal,
+  int child: @erb_token_string ref
 );
 
-@solidity_yul_switch_statement_child_type = @solidity_token_yul_boolean | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_yul_block | @solidity_yul_function_call | @solidity_yul_path | @solidity_yul_string_literal
+@erb_yul_switch_statement_child_type = @erb_token_yul_boolean | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_yul_block | @erb_yul_function_call | @erb_yul_path | @erb_yul_string_literal
 
-#keyset[solidity_yul_switch_statement, index]
-solidity_yul_switch_statement_child(
-  int solidity_yul_switch_statement: @solidity_yul_switch_statement ref,
+#keyset[erb_yul_switch_statement, index]
+erb_yul_switch_statement_child(
+  int erb_yul_switch_statement: @erb_yul_switch_statement ref,
   int index: int ref,
-  unique int child: @solidity_yul_switch_statement_child_type ref
+  unique int child: @erb_yul_switch_statement_child_type ref
 );
 
-solidity_yul_switch_statement_def(
-  unique int id: @solidity_yul_switch_statement
+erb_yul_switch_statement_def(
+  unique int id: @erb_yul_switch_statement
 );
 
-@solidity_yul_variable_declaration_left_type = @solidity_reserved_word | @solidity_yul_identifier
+@erb_yul_variable_declaration_left_type = @erb_reserved_word | @erb_yul_identifier
 
-#keyset[solidity_yul_variable_declaration, index]
-solidity_yul_variable_declaration_left(
-  int solidity_yul_variable_declaration: @solidity_yul_variable_declaration ref,
+#keyset[erb_yul_variable_declaration, index]
+erb_yul_variable_declaration_left(
+  int erb_yul_variable_declaration: @erb_yul_variable_declaration ref,
   int index: int ref,
-  unique int left: @solidity_yul_variable_declaration_left_type ref
+  unique int left: @erb_yul_variable_declaration_left_type ref
 );
 
-@solidity_yul_variable_declaration_right_type = @solidity_token_yul_boolean | @solidity_token_yul_decimal_number | @solidity_token_yul_hex_number | @solidity_yul_function_call | @solidity_yul_path | @solidity_yul_string_literal
+@erb_yul_variable_declaration_right_type = @erb_token_yul_boolean | @erb_token_yul_decimal_number | @erb_token_yul_hex_number | @erb_yul_function_call | @erb_yul_path | @erb_yul_string_literal
 
-solidity_yul_variable_declaration_right(
-  unique int solidity_yul_variable_declaration: @solidity_yul_variable_declaration ref,
-  unique int right: @solidity_yul_variable_declaration_right_type ref
+erb_yul_variable_declaration_right(
+  unique int erb_yul_variable_declaration: @erb_yul_variable_declaration ref,
+  unique int right: @erb_yul_variable_declaration_right_type ref
 );
 
-solidity_yul_variable_declaration_def(
-  unique int id: @solidity_yul_variable_declaration
+erb_yul_variable_declaration_def(
+  unique int id: @erb_yul_variable_declaration
 );
 
-solidity_tokeninfo(
-  unique int id: @solidity_token,
+erb_tokeninfo(
+  unique int id: @erb_token,
   int kind: int ref,
   string value: string ref
 );
 
-case @solidity_token.kind of
-  0 = @solidity_reserved_word
-| 1 = @solidity_token_any_source_type
-| 2 = @solidity_token_break_statement
-| 3 = @solidity_token_comment
-| 4 = @solidity_token_continue_statement
-| 5 = @solidity_token_enum_value
-| 6 = @solidity_token_false
-| 7 = @solidity_token_hex_string_literal
-| 8 = @solidity_token_identifier
-| 9 = @solidity_token_immutable
-| 10 = @solidity_token_number_unit
-| 11 = @solidity_token_pragma_value
-| 12 = @solidity_token_primitive_type
-| 13 = @solidity_token_solidity_version
-| 14 = @solidity_token_solidity_version_comparison_operator
-| 15 = @solidity_token_state_mutability
-| 16 = @solidity_token_string
-| 17 = @solidity_token_true
-| 18 = @solidity_token_unicode_string_literal
-| 19 = @solidity_token_virtual
-| 20 = @solidity_token_visibility
-| 21 = @solidity_token_yul_boolean
-| 22 = @solidity_token_yul_break
-| 23 = @solidity_token_yul_continue
-| 24 = @solidity_token_yul_decimal_number
-| 25 = @solidity_token_yul_evm_builtin
-| 26 = @solidity_token_yul_hex_number
-| 27 = @solidity_token_yul_leave
+case @erb_token.kind of
+  0 = @erb_reserved_word
+| 1 = @erb_token_any_source_type
+| 2 = @erb_token_break_statement
+| 3 = @erb_token_comment
+| 4 = @erb_token_continue_statement
+| 5 = @erb_token_enum_value
+| 6 = @erb_token_false
+| 7 = @erb_token_hex_string_literal
+| 8 = @erb_token_identifier
+| 9 = @erb_token_immutable
+| 10 = @erb_token_number_unit
+| 11 = @erb_token_pragma_value
+| 12 = @erb_token_primitive_type
+| 13 = @erb_token_solidity_version
+| 14 = @erb_token_solidity_version_comparison_operator
+| 15 = @erb_token_state_mutability
+| 16 = @erb_token_string
+| 17 = @erb_token_true
+| 18 = @erb_token_unicode_string_literal
+| 19 = @erb_token_virtual
+| 20 = @erb_token_visibility
+| 21 = @erb_token_yul_boolean
+| 22 = @erb_token_yul_break
+| 23 = @erb_token_yul_continue
+| 24 = @erb_token_yul_decimal_number
+| 25 = @erb_token_yul_evm_builtin
+| 26 = @erb_token_yul_hex_number
+| 27 = @erb_token_yul_leave
 ;
 
 
-@solidity_ast_node = @solidity_any_pragma_token | @solidity_array_access | @solidity_assembly_statement | @solidity_assignment_expression | @solidity_augmented_assignment_expression | @solidity_binary_expression | @solidity_block_statement | @solidity_boolean_literal | @solidity_call_argument | @solidity_call_expression | @solidity_call_struct_argument | @solidity_catch_clause | @solidity_constant_variable_declaration | @solidity_constructor_definition | @solidity_contract_body | @solidity_contract_declaration | @solidity_do_while_statement | @solidity_emit_statement | @solidity_enum_declaration | @solidity_error_declaration | @solidity_error_parameter | @solidity_event_definition | @solidity_event_paramater | @solidity_expression_statement | @solidity_fallback_receive_definition | @solidity_for_statement | @solidity_function_body | @solidity_function_definition | @solidity_if_statement | @solidity_import_directive | @solidity_inheritance_specifier | @solidity_inline_array_expression | @solidity_interface_declaration | @solidity_library_declaration | @solidity_member_expression | @solidity_meta_type_expression | @solidity_modifier_definition | @solidity_modifier_invocation | @solidity_new_expression | @solidity_number_literal | @solidity_override_specifier | @solidity_parameter | @solidity_parenthesized_expression | @solidity_payable_conversion_expression | @solidity_pragma_directive | @solidity_return_parameter | @solidity_return_statement | @solidity_return_type_definition | @solidity_revert_arguments | @solidity_revert_statement | @solidity_slice_access | @solidity_solidity_pragma_token | @solidity_source_file | @solidity_state_variable_declaration | @solidity_string_literal | @solidity_struct_declaration | @solidity_struct_expression | @solidity_struct_field_assignment | @solidity_struct_member | @solidity_ternary_expression | @solidity_token | @solidity_try_statement | @solidity_tuple_expression | @solidity_type_alias | @solidity_type_cast_expression | @solidity_type_name | @solidity_unary_expression | @solidity_update_expression | @solidity_user_defined_type | @solidity_user_defined_type_definition | @solidity_using_directive | @solidity_variable_declaration | @solidity_variable_declaration_statement | @solidity_variable_declaration_tuple | @solidity_while_statement | @solidity_yul_assignment | @solidity_yul_block | @solidity_yul_for_statement | @solidity_yul_function_call | @solidity_yul_function_definition | @solidity_yul_identifier | @solidity_yul_if_statement | @solidity_yul_label | @solidity_yul_path | @solidity_yul_string_literal | @solidity_yul_switch_statement | @solidity_yul_variable_declaration
+@erb_ast_node = @erb_any_pragma_token | @erb_array_access | @erb_assembly_statement | @erb_assignment_expression | @erb_augmented_assignment_expression | @erb_binary_expression | @erb_block_statement | @erb_boolean_literal | @erb_call_argument | @erb_call_expression | @erb_call_struct_argument | @erb_catch_clause | @erb_constant_variable_declaration | @erb_constructor_definition | @erb_contract_body | @erb_contract_declaration | @erb_do_while_statement | @erb_emit_statement | @erb_enum_declaration | @erb_error_declaration | @erb_error_parameter | @erb_event_definition | @erb_event_paramater | @erb_expression_statement | @erb_fallback_receive_definition | @erb_for_statement | @erb_function_body | @erb_function_definition | @erb_if_statement | @erb_import_directive | @erb_inheritance_specifier | @erb_inline_array_expression | @erb_interface_declaration | @erb_library_declaration | @erb_member_expression | @erb_meta_type_expression | @erb_modifier_definition | @erb_modifier_invocation | @erb_new_expression | @erb_number_literal | @erb_override_specifier | @erb_parameter | @erb_parenthesized_expression | @erb_payable_conversion_expression | @erb_pragma_directive | @erb_return_parameter | @erb_return_statement | @erb_return_type_definition | @erb_revert_arguments | @erb_revert_statement | @erb_slice_access | @erb_solidity_pragma_token | @erb_source_file | @erb_state_variable_declaration | @erb_string_literal | @erb_struct_declaration | @erb_struct_expression | @erb_struct_field_assignment | @erb_struct_member | @erb_ternary_expression | @erb_token | @erb_try_statement | @erb_tuple_expression | @erb_type_alias | @erb_type_cast_expression | @erb_type_name | @erb_unary_expression | @erb_update_expression | @erb_user_defined_type | @erb_user_defined_type_definition | @erb_using_directive | @erb_variable_declaration | @erb_variable_declaration_statement | @erb_variable_declaration_tuple | @erb_while_statement | @erb_yul_assignment | @erb_yul_block | @erb_yul_for_statement | @erb_yul_function_call | @erb_yul_function_definition | @erb_yul_identifier | @erb_yul_if_statement | @erb_yul_label | @erb_yul_path | @erb_yul_string_literal | @erb_yul_switch_statement | @erb_yul_variable_declaration
 
-@solidity_ast_node_parent = @file | @solidity_ast_node
+@erb_ast_node_parent = @erb_ast_node | @file
 
 #keyset[parent, parent_index]
-solidity_ast_node_info(
-  unique int node: @solidity_ast_node ref,
-  int parent: @solidity_ast_node_parent ref,
+erb_ast_node_info(
+  unique int node: @erb_ast_node ref,
+  int parent: @erb_ast_node_parent ref,
   int parent_index: int ref,
   int loc: @location ref
 );

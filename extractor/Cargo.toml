@@ -1,0 +1,19 @@
+[package]
+name = "codeql-extractor-solidity"
+description = "CodeQL Solidity extractor"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tree-sitter = { path = "../../shared/tree-sitter/tree-sitter/lib" }
+tree-sitter-solidity = { path = "../../shared/tree-sitter/tree-sitter-solidity" }
+clap = { version = "4.2", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3.3", features = ["env-filter"] }
+rayon = "1.5.0"
+regex = "1.7.1"
+encoding = "0.2"
+lazy_static = "1.4.0"
+codeql-extractor = { path = "../../shared/tree-sitter-extractor" }
