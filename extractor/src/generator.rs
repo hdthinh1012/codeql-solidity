@@ -23,7 +23,7 @@ pub fn run(options: Options) -> std::io::Result<()> {
         .init();
 
     let languages = vec![Language {
-        name: "Erb".to_owned(),
+        name: "Solidity".to_owned(),
         node_types: tree_sitter_solidity::NODE_TYPES,
     }];
 
